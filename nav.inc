@@ -1,9 +1,9 @@
 <nav>
     <ul>
-        <li><p class="menu"><a href="index.html">Index</a></p></li>
-        <li><p class="menu"><a href="jobs.html">Jobs</a></p></li>
-        <li><p class="menu"><a href="apply.html">Apply</a></p></li>
-        <li><p class="menu"><a href="about.html">About</a></p></li>
+        <li><p class="menu"><a href="index.php">Index</a></p></li>
+        <li><p class="menu"><a href="jobs.php">Jobs</a></p></li>
+        <li><p class="menu"><a href="apply.php">Apply</a></p></li>
+        <li><p class="menu"><a href="about.php">About</a></p></li>
         <li>
             <search>
                 <form action="/search-results" method="GET">
