@@ -1,0 +1,233 @@
+/*
+
+filename: [apply.css]
+
+authors: [Ciara Smith, Paul Harrington, Kai Dicker]
+
+created: [2 / 04 / 2026]
+
+last modified: [18 / 04 / 2026]
+
+description: [linkly CSS stylesheet]
+
+*/
+
+/* general CSS */
+
+body {
+    width: 810px;
+    max-width: 100%;
+    margin: 0 auto 10px;
+    background: whitesmoke;
+}
+
+* { 
+  font-family: calibri, sans-serif;
+} 
+
+.image {
+    margin-left: 232px;
+    margin-top: 23px; /* ensuring the image is sitting in place next to the header */
+    width: 140px;
+} 
+
+a {
+  text-decoration: none;
+  color: #0E0C59;
+}
+
+/* Header*/
+header h1{
+  color: #0E0C59;
+  text-shadow: 1px 1px #37A5DD;
+  font-size: 50px;
+  margin-top: -92px;
+  margin-left: 86px;
+  text-align: center;
+  font-family: serif;
+}
+header h2{
+  color: #0E0C59; 
+  text-align: center;
+  font-size: 18px;
+  margin-top: -30px; 
+  margin-left: 125px;
+  font-family: serif;
+}
+
+/* Navigation / Menu */
+
+nav ul { 
+    list-style: none;
+    text-align: center;
+    padding-left: 0px;
+    margin-top: -16px;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  background: #37A5DD;
+  padding: 1px 10px;
+  margin: 0 5px;
+  text-decoration: none;
+  border: 1px solid black;
+  box-shadow: 2px 2px black;
+  color: #0E0C59;
+  font-size: 16px;
+}
+
+nav a:hover {
+  font-size: 110%;
+  background: #1C8EC8;
+  transition: 0.5s;
+}
+
+fieldset:hover {
+  scale: 103%;
+  transition: 1s;
+}
+
+search label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+button {
+  border: 2px outset black;
+}
+
+.description {
+    padding: 10px;
+    background: lightblue;
+}
+
+li{
+  display: list-item;
+}
+/* Form */
+
+fieldset {
+  background: white;
+  box-shadow: 2px 2px 8px black;
+  padding-left: 30px;
+  margin-bottom: 20px;
+}
+
+legend {
+  color: #0E0C59;
+  background: white;
+  border: solid black 1px;
+  padding: 1px 10px 1px 10px;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+select {
+  border: 1px solid black;
+  background: whitesmoke;
+}
+
+input {
+  border-radius: 0px;
+  border: outset black 2px;
+}
+
+/* Footer */
+
+footer a {
+  margin: 0 3px 0 3px;
+  text-decoration: none;
+  color: #0E0C59;
+}
+
+
+footer ul {
+  text-align: right;
+}
+footer li{
+  display: inline-block;
+}
+
+
+
+
+/* index.html CSS */
+
+#searchBar {
+  border: 2px outset black;
+  margin-left: 25px;
+}
+
+body > nav:nth-child(5) > ul:nth-child(2) > li:nth-child(6) > label:nth-child(1) {
+  color: whitesmoke;
+}
+
+article {
+  background: lightblue;
+  padding: 0.2em 1em 0.2em 01em;
+}
+
+article h2 {
+  text-align: center;
+}
+
+table {
+  margin: auto;
+  width: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+table, th, td, tr {
+  border: 1px solid black;
+  background: white;
+}
+
+th {
+  background: lightblue;
+}
+
+/*about.html CSS*/
+
+
+
+#horizontal {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+}
+
+#horizontal dt {
+  font-weight: bold;
+}
+
+#horizontal dd {
+  margin: 0;
+}
+
+#funfact {
+  width: auto; 
+}
+#group{
+    max-width:100%;
+    height: auto;
+}
+
+/*jobs.html CSS*/
+
+.job{
+    border: 1px solid black;
+    margin: 25px;
+    width: auto;
+    padding: 0 10px 0 10px;
+    margin: 15px;
+    background-color: whitesmoke;
+}
