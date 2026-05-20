@@ -11,8 +11,8 @@
     </head>
 
     <body>
-        <?php include 'header.inc'; ?>
-        <?php include 'nav.inc'; ?>
+        <?php include 'inc_files/header.inc'; ?>
+        <?php include 'inc_files/nav.inc'; ?>
                 <article>
             <h2>The Future of Technology, Today</h2>
             <p>Here at Linkly, we strive to find the limit of technology. Progress is what humanity strives for, and we intend to take humanity to the pinnacle of its capabilities.</p>
@@ -36,6 +36,6 @@
                 <th>Paul Harrington</th>
             </tr>
         </table>
-        <?php include 'footer.inc'; ?>
+        <?php include 'inc_files/footer.inc'; ?>
     </body>
 </html>

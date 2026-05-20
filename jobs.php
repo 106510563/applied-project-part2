@@ -11,8 +11,8 @@
     </head>
 
     <body>
-        <?php include 'header.inc'; ?>
-        <?php include 'nav.inc'; ?>
+        <?php include 'inc_files/header.inc'; ?>
+        <?php include 'inc_files/nav.inc'; ?>
                 <article>
             <img class="image" src="images/logo.png" alt="The Logo">
             <h3>Now is your chance to have a hand in the future of technology!</h3>
@@ -71,6 +71,6 @@
         </section>
 
         </article>
-        <?php include 'footer.inc'; ?>
+        <?php include 'inc_files/footer.inc'; ?>
     </body>
 </html>

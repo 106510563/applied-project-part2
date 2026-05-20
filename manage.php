@@ -1,11 +1,11 @@
         <link href="styles/styles.css" rel="stylesheet">
 
 <?php
-include "header.inc";
+include "inc_files/header.inc";
 ?>
 
 
 <?php
-include "footer.inc";
+include "inc_files/footer.inc";
 ?>
 
