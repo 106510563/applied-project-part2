@@ -1,3 +1,4 @@
+        <link href="styles/styles.css" rel="stylesheet">
 
 <?php
 include "header.inc";
@@ -5,6 +6,6 @@ include "header.inc";
 
 
 <?php
-include "header.inc";
+include "footer.inc";
 ?>
 
