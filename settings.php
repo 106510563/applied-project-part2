@@ -2,6 +2,6 @@
 $host= "localhost";
 $user="root";
 $pwd="";
-$sql_db = "";
+$sql_db = "linkly_db";
 
 ?>
