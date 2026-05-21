@@ -9,8 +9,12 @@ $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 
 // Insert user into the database
+
 $query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
 $result = mysqli_query($conn, $query);
+if (empty($username) || empty($password)) {
+  echo "❌Please enter both username and password.";
+} 
 
 if ($result) {
   echo "✅ Signup successful. You can now <a href='login.html'>login</a>.";
