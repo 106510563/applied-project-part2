@@ -24,10 +24,6 @@
           <input type="submit" value="signup">
 
       </form>
-    <?php include 'inc_files/footer.inc'; ?>
-  </body>
-  </html>    
-
   <?php
   session_start();
   require_once("settings.php");
@@ -55,3 +51,7 @@
   else {
   }
   ?>
+    <?php include 'inc_files/footer.inc'; ?>
+  </body>
+  </html>    
+
