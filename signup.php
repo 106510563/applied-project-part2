@@ -46,7 +46,7 @@
 
 
   if ($result) {
-    echo "✅ Signup successful. You can now <a href='login.html'>login</a>.";
+    echo "✅ Signup successful. You can now <a href='login.php'>login</a>.";
   } 
   elseif ($username === $query) {
       $_SESSION['user'] = $username;
