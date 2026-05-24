@@ -1,7 +1,7 @@
 <?php
 $host= "localhost";
-$user="root";
-$pwd="";
+$username="root";
+$password="";
 $sql_db = "linkly_db";
 
 ?>
