@@ -6,6 +6,7 @@
         <meta name="keywords" content="applications, job, apply, ecommerce">
         <meta name="author" content="Ciara Smith">
         <link href="styles/styles.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Apply to Linkly</title>
 
     </head>
@@ -20,12 +21,12 @@
         <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
             <fieldset>
                 <legend><strong>Applicant Details</strong></legend>
-                <label for="gname">Given Name*</label>
-                <input type="text" name= "gname" id="gname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$" required="required">
-                <label for="pname">Preferred Name</label>
-                <input type="text" name= "pname" id="pname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$">
-                <label for="fname">Family Name*</label>
-                <input type="text" name= "fname" id="fname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$" required="required">
+                <p><label for="gname">Given Name*</label>
+                <input type="text" name= "gname" id="gname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$" required="required"></p>
+                <p><label for="pname">Preferred Name</label>
+                <input type="text" name= "pname" id="pname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$"></p>
+                <p><label for="fname">Family Name*</label>
+                <input type="text" name= "fname" id="fname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$" required="required"></p>
                 <p><label for="date">Date of Birth*</label> 
 			    <input type="text" name= "date" id="date" placeholder="dd/mm/yyyy" maxlength="10" size="10" pattern="\d{1,2}\/\d{1,2}\/\d{4}" required="required">
 		        </p>
@@ -34,9 +35,9 @@
                 <p>Gender</p> 
                 <div id="gender">
 				<input type="radio" id="male" name="gender[]" value="male">
-                <label for="male">Male</label> 
+                <label for="male">Male</label><br> 
 				<input type="radio" id="female" name="gender[]" value="female">
-                <label for="female">Female</label> 
+                <label for="female">Female</label> <br>
 				<input type="radio" id="unspec" name="gender[]" value="unspec">
                 <label for="unspec">Other/Unspecified</label> 
                 </div>
@@ -70,7 +71,7 @@
 				<option value="job2">E-Commerce Coordinator</option>
 			        </select>
                 <p><label for="ref">Job Reference Number*</label>
-                <input type="text" name= "ref" id="ref" maxlength="5" size="7" pattern="[a-zA-Z][0-9]" required="required"></p>
+                <input type="text" name= "ref" id="ref" maxlength="5" size="7" pattern="[a-zA-Z0-9]+" required="required"></p>
             </fieldset>
 
             <fieldset>

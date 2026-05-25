@@ -6,6 +6,7 @@
         <meta name="keywords" content="applications, job, apply, ecommerce">
         <meta name="author" content="Ciara Smith">
         <link href="styles/styles.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Avaliable Job Positions</title>
 
     </head>
@@ -14,7 +15,16 @@
         <?php include 'inc_files/header.inc'; ?>
         <?php include 'inc_files/nav.inc'; ?>
                 <article>
-            <img class="image" src="images/logo.png" alt="The Logo">
+            <img class="image1" src="images/logo.png" alt="Linkly Logo">
+
+            <style>
+                .image1 {
+                    width: 86px;
+                    display: flex;
+                    margin: 10px auto;
+                }
+            </style>
+
             <h3>Now is your chance to have a hand in the future of technology!</h3>
             <p>Join us here at Linkly today and see the progress we make here towards the future of humanity.</p>
             <p>No matter your expertise, here at Linkly you'll be a valuable member of the family, your skills will be cherised and you'll help us strive to make a bright future for humanity.</p>
@@ -27,7 +37,7 @@
                 <p>Salary: $50,000 anually for partime workers, casual worker salaries are determined after availability is confirmed.</p>
             </div>
             <div>
-                <p>What we are looking for in this role: </p>
+                <p>What we are looking for in this role (Preferred): </p>
                 <ul>
                     <li>An approachable and helpful personality</li>
                     <li>A proactive and quick thinker</li>
@@ -36,12 +46,12 @@
                 </ul>
             </div>
             <div>
-            <p>Key responsibilities for this role:</p>
-                <ul>
+            <p>What you will be doing (Essential): </p>
+                <ol>
                     <li>Answering phone calls from clients</li>
                     <li>Referring clients to resources or other members of staff for assistance when necessary</li>
                     <li>Assisting clients in finding solutions to their problems, whether that be on call or in person</li>
-                </ul>
+                </ol>
             </div>
         </section>
         <section class="job">
@@ -52,7 +62,7 @@
                 <p>Salary:$175,000 anually</p>
             </div>
             <div>
-                <p>What we are looking for in this role: </p>
+                <p>What we are looking for in this role (Preferred):</p>
                 <ul>
                     <li>A mature, calm team player</li>
                     <li>A can-do attitude with a business-first mindset</li>
@@ -61,12 +71,12 @@
                 </ul>
             </div>
             <div>
-                <p>Key responsibilities for this role: </p>
-                <ul>
+                <p>What you will be doing (Essential):</p>
+                <ol>
                     <li>Keeping track of all operations related to postition</li>
                     <li>Ensuring performance and quotas are met by the team</li>
                     <li>Setting an example for the team though leadership, work ethic, and teamwork</li>
-                </ul>
+                </ol>
             </div>
         </section>
 

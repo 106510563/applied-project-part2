@@ -6,6 +6,7 @@
         <meta name="keywords" content="applications, job, apply, ecommerce">
         <meta name="author" content="Ciara Smith">
         <link href="styles/styles.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About Linkly</title>
 
     </head>

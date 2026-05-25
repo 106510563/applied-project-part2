@@ -5,14 +5,16 @@
         <meta name="description" content="Linkly Homepage">
         <meta name="keywords" content="applications, job, apply, ecommerce">
         <meta name="author" content="Ciara Smith">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link href="styles/styles.css" rel="stylesheet">
         <title>Linkly Homepage</title>
 
     </head>
 
     <body>
-        <?php include 'header.inc'; ?>
-        <?php include 'nav.inc'; ?>
+        <?php include 'inc_files/header.inc'; ?>
+        <?php include 'inc_files/nav.inc'; ?>
         <article style="display: flex;">
         <aside id="right">
             <h2>The Future of Technology, Today</h2>
@@ -26,19 +28,8 @@
             <p>If you want to join over 1,000 others working at Linkly, please refer to our Jobs page for readily-avaliable positions, but hurry! Positions go fast!</p>
         </aside>
         <aside id="left">
-            <img id="photo" style="width: 250px; padding: 10px;" src="https://images.pexels.com/photos/5882532/pexels-photo-5882532.jpeg" alt="Image on two people working at a laptop">
-            <details>
-                <summary style="font-size: 25px; text-align: center;"><strong>FAQ</strong></summary>
-                <ol>
-                    <li><strong>Where can I contact for inquiries regarding a specific subject?</strong></li>
-                    <ul>Our email is avaliable for any inquiries about anything you can think of (info@linkly.com)<br>Otherwise, you can call our Australian phone number at +61 XXX-XXX-XXX, or our international phone number at +XX XXX-XXX-XXX.<br>For inquiries regarding job positions, press 1. For inquiries regarding buying off our platform, press 2. For inquiries regarding selling off our platform, press 3.</ul>
-                    <li><strong></strong></li>
-                    <ul></ul>
-                </ol>
-            </details>
-        </aside>
-        </article>
-        <table>
+            <img id="photo" style="width: 300px; padding: 10px;" src="https://images.pexels.com/photos/5882532/pexels-photo-5882532.jpeg" alt="Image on two people working at a laptop">
+                    <table>
             <tr>
                 <th><em>Authors</em></th>
                 <th><em>Project</em></th>
@@ -56,6 +47,18 @@
                 <th>Paul Harrington</th>
             </tr>
         </table>
-        <?php include 'footer.inc'; ?>
+            <details>
+                <summary style="font-size: 25px; text-align: center;"><strong>FAQ</strong></summary>
+                <ol>
+                    <li><strong>Where can I contact for inquiries regarding a specific subject?</strong></li>
+                    <ul>Our email is avaliable for any inquiries about anything you can think of (info@linkly.com)<br>Otherwise, you can call our Australian phone number at +61 XXX-XXX-XXX, or our international phone number at +XX XXX-XXX-XXX.<br>For inquiries regarding job positions, press 1. For inquiries regarding buying off our platform, press 2. For inquiries regarding selling off our platform, press 3.</ul>
+                    <li><strong></strong></li>
+                    <ul></ul>
+                </ol>
+            </details>
+            
+        </aside>
+        </article>
+        <?php include 'inc_files/footer.inc'; ?>
     </body>
 </html>
