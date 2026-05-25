@@ -6,7 +6,7 @@
         <meta name="keywords" content="applications, job, apply, ecommerce">
         <meta name="author" content="Ciara Smith">
         <link href="styles/styles.css" rel="stylesheet">
-        <title>Job Positions</title>
+        <title>Avaliable Job Positions</title>
 
     </head>
 

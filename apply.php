@@ -27,7 +27,7 @@
                 <label for="fname">Family Name*</label>
                 <input type="text" name= "fname" id="fname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$" required="required">
                 <p><label for="date">Date of Birth*</label> 
-			    <input type="text" name= "date" id="date" placeholder="dd-mm-yyyy" maxlength="10" size="10" pattern="\d{1,2}\/\d{1,2}\/\d{4}" required="required">
+			    <input type="text" name= "date" id="date" placeholder="dd/mm/yyyy" maxlength="10" size="10" pattern="\d{1,2}\/\d{1,2}\/\d{4}" required="required">
 		        </p>
 
 
@@ -70,7 +70,7 @@
 				<option value="job2">E-Commerce Coordinator</option>
 			        </select>
                 <p><label for="ref">Job Reference Number*</label>
-                <input type="text" name= "ref" id="ref" maxlength="5" size="7" pattern="[a-zA-Z ][0-9]" required="required"></p>
+                <input type="text" name= "ref" id="ref" maxlength="5" size="7" pattern="[a-zA-Z][0-9]" required="required"></p>
             </fieldset>
 
             <fieldset>

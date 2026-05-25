@@ -231,3 +231,16 @@ th {
     margin: 15px;
     background-color: whitesmoke;
 }
+
+#right {
+  width: 70%;
+}
+
+#left{
+  width: 30%;
+}
+
+summary {
+  font-size: 25px;
+  text-align: center;
+}
