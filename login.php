@@ -1,12 +1,17 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "password";
-$dbname = "users";
+require_once("settings.php");
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$message = "";
+$toastClass = "";
 
-if ($conn->connect_error) {
-    die("Connection failed: ". $conn->connect_error);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT password FROM linkly_db WHERE email")
+    $stmt->execute();
+    $stmt->store_result();
+    
 }
+
 ?>
