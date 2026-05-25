@@ -21,7 +21,7 @@
           <input type="password" name="password" required placeholder="Enter Password">
           
           <input type="hidden" name="token" value="abc123">
-          <input type="submit" value="signup">
+          <input type="submit" value="submit">
 
       </form>
   <?php
@@ -31,8 +31,8 @@
   $conn = mysqli_connect($host, $username, $password, $sql_db);
 
   // Get form data
-  $username = trim($_POST['username']);
-  $password = trim($_POST['password']);
+  $username = trim($_POST["username"]);
+  $password = trim($_POST["password"]);
 
   // Insert user into the database
   $query = "SELECT * FROM users WHERE username='$username'";
