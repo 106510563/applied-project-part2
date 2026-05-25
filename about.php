@@ -11,8 +11,8 @@
     </head>
 
     <body>
-        <?php include 'header.inc'; ?>
-        <?php include 'nav.inc'; ?>
+        <?php include 'inc_files/header.inc'; ?>
+        <?php include 'inc_files/nav.inc'; ?>
         <article>
             <h2>Acknowledgement of Country</h2>
             <p>We respectfully acknowledge the Wurundjeri People of the Kulin Nation, who are the Traditional Owners of the land on which we are located in Melbourne’s east and outer-east, and pay our respect to their Elders past, present and emerging. We are honoured to recognise our connection to Wurundjeri Country, history, culture and spirituality. We strive to operate in a manner that respects and honours the Elders and Ancestors of these lands. We also respectfully acknowledge Aboriginal and Torres Strait Islander staff, partners and visitors. We also acknowledge and respect the Traditional Owners of lands across Australia, their Elders, Ancestors, cultures and heritage, and recognise the continuing sovereignties of all Aboriginal and Torres Strait Islander Nations.</p>
@@ -98,6 +98,6 @@
                 </tr>
             </table>
         </article>
-        <?php include 'footer.inc'; ?>
+        <?php include 'inc_files/footer.inc'; ?>
     </body>
 </html>

@@ -11,8 +11,8 @@
     </head>
 
     <body>
-        <?php include 'header.inc'; ?>
-        <?php include 'nav.inc'; ?>
+        <?php include 'inc_files/header.inc'; ?>
+        <?php include 'inc_files/nav.inc'; ?>
                 <p class="description">Fill out the form below to apply for a job position. <br>
         For more information on the specific job positions, please ensure to read the <a href="jobs.html">Jobs</a> page. <br>
         Fields marked with * are required.</p>
@@ -119,6 +119,6 @@
             <input type= "submit" value="Apply">
 	        <input type= "reset" value="Reset Application">
         </form>
-        <?php include 'footer.inc'; ?>
+        <?php include 'inc_files/footer.inc'; ?>
     </body>
 </html>

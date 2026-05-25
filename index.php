@@ -32,7 +32,7 @@
                 <ol>
                     <li><strong>Where can I contact for inquiries regarding a specific subject?</strong></li>
                     <ul>Our email is avaliable for any inquiries about anything you can think of (info@linkly.com)<br>Otherwise, you can call our Australian phone number at +61 XXX-XXX-XXX, or our international phone number at +XX XXX-XXX-XXX.<br>For inquiries regarding job positions, press 1. For inquiries regarding buying off our platform, press 2. For inquiries regarding selling off our platform, press 3.</ul>
-                    <li><strong>How do I ?</strong></li>
+                    <li><strong></strong></li>
                     <ul></ul>
                 </ol>
             </details>

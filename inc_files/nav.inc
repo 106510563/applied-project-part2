@@ -13,5 +13,8 @@
                 </form>
             </search>
         </li>
+        <li><p class="menu"><a href="login.php">Login</a></p></li>
+        <li><p class="menu"><a href="signup.php">Signup</a></p></li>
+        
     </ul>
 </nav>

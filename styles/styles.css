@@ -1,6 +1,6 @@
 /*
 
-filename: [apply.css]
+filename: [styles.css]
 
 authors: [Ciara Smith, Paul Harrington, Kai Dicker]
 
@@ -160,7 +160,7 @@ footer li{
 
 
 
-/* index.html CSS */
+/* index.php CSS */
 
 #searchBar {
   border: 2px outset black;
@@ -195,7 +195,7 @@ th {
   background: lightblue;
 }
 
-/*about.html CSS*/
+/*about.php CSS*/
 
 
 
@@ -221,7 +221,7 @@ th {
     height: auto;
 }
 
-/*jobs.html CSS*/
+/*jobs.php CSS*/
 
 .job{
     border: 1px solid black;
@@ -231,6 +231,30 @@ th {
     margin: 15px;
     background-color: whitesmoke;
 }
+
+/*signup.php CSS*/
+
+#signup {
+    background: white;
+    padding: 2rem;
+    margin-top: 4rem;
+
+    width: 100%;
+    max-width: 400px;
+
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* Hover effect */
+#signup input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
 
 #right {
   width: 70%;
