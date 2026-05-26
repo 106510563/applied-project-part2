@@ -18,7 +18,7 @@
         For more information on the specific job positions, please ensure to read the <a href="jobs.html">Jobs</a> page. <br>
         Fields marked with * are required.</p>
 
-        <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+        <form method="post" action="process_eoi.php">
             <fieldset>
                 <legend><strong>Applicant Details</strong></legend>
                 <p><label for="gname">Given Name*</label>
