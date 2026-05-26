@@ -14,7 +14,24 @@
     <body>
         <?php include 'inc_files/header.inc'; ?>
         <?php include 'inc_files/nav.inc'; ?>
-                <article>
+        <article>
+            <?php
+             require_once "settings.php";
+            ?>
+        <form action="search.php" method="GET">
+            <label for="search" style="font-size:0px;">Search:</label>
+            <input type="search" id="search" name="q" placeholder="Search Job Positions..." required>
+            <style>
+                #search {
+                    padding: 5px 10px;
+                    width: 90%;
+                    margin-top: 13px;
+                    border-radius: 10px;
+                }
+            </style>
+            <button type="submit" style="border-radius: 10px; border: 3px inset black;padding: 0px 12px;font-size: 20px;transform: translateY(4px);">🔍︎</button>
+        </form>
+
             <img class="image1" src="images/logo.png" alt="Linkly Logo">
 
             <style>
