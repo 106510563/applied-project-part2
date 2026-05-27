@@ -18,7 +18,7 @@
         For more information on the specific job positions, please ensure to read the <a href="jobs.html">Jobs</a> page. <br>
         Fields marked with * are required.</p>
 
-        <form method="post" action="process_eoi.php">
+        <form action="process_eoi.php" method="POST" novalidate>
             <fieldset>
                 <legend><strong>Applicant Details</strong></legend>
                 <p><label for="gname">Given Name*</label>
