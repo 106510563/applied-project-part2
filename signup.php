@@ -15,11 +15,14 @@
           <form method="post" id="signup" action="">
 
           <label for="username">Username: </label>
-          <input type="text" name="username" required placeholder="Enter Username"><br>
+          <input type="text" name="username" placeholder="Enter Username" required><br>
 
           <label for="password">Password: </label>
-          <input type="password" name="password" required placeholder="Enter Password">
+          <input type="password" name="password" placeholder="Enter Password" required>
           
+          <label for="confirm_password">Confirm Password: </label>
+          <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
           <input type="hidden" name="token" value="abc123">
           <input type="submit" value="submit">
 
