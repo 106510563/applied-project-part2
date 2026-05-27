@@ -66,6 +66,16 @@ CREATE TABLE `jobs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `username` varchar(50) NOT NULL,
+  `password`varchar(50) NOT NULL
+  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+)
+
+--
 -- Dumping data for table `jobs`
 --
 
