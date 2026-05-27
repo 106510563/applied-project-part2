@@ -38,7 +38,7 @@ $password = trim($_POST['password']);
 
             if ($user) {
                 $_SESSION['username'] = $user['username'];
-                header("Location: welcome.php");
+                header("Location: index.php");
                 exit();
             } else {
                 echo "❌ Incorrect username or password.";
