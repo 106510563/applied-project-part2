@@ -27,19 +27,22 @@ $password = trim($_POST['password']);
         <article>
             <h2>Login to Linkly!</h2>
             <?php
-                require_once("settings.php");
+            // Get user input
+            $username = trim($_POST['username']);
+            $password = trim($_POST['password']);
 
-                $message = "";
-                $toastClass = "";
+            // Simple query to check credentials
+            $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+            $result = mysqli_query($conn, $query);
+            $user = mysqli_fetch_assoc($result);
 
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $username = $_POST['username'];
-                    $password = $_POST['password'];
-
-                    $stmt = $conn->prepare("SELECT password FROM linkly_db WHERE email")
-                    $stmt->execute();
-                    $stmt->store_result();
-                }
+            if ($user) {
+                $_SESSION['username'] = $user['username'];
+                header("Location: welcome.php");
+                exit();
+            } else {
+                echo "❌ Incorrect username or password.";
+            }
             ?>
         </article>
         <?php include 'inc_files/footer.inc'; ?>
