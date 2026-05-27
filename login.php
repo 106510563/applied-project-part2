@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+<?php
+session_start();
+require_once("settings.php");
+=======
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,9 +13,19 @@
         <link href="styles/styles.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Linkly Log-In</title>
+>>>>>>> 0d53a26dbebe5b4b067bc962fe99ab7b5014148d
 
+<<<<<<< HEAD
+$conn = mysqli_connect($host, $username, $password, $sql_db);
+=======
     </head>
+>>>>>>> 0d53a26dbebe5b4b067bc962fe99ab7b5014148d
 
+<<<<<<< HEAD
+//user input
+$username = trim($_POST['username']);
+$password = trim($_POST['password']);
+=======
     <body>
         <?php include 'inc_files/header.inc'; ?>
         <?php include 'inc_files/nav.inc'; ?>
