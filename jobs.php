@@ -29,7 +29,7 @@
                     border-radius: 10px;
                 }
             </style>
-            <button type="submit" style="border-radius: 10px; border: 3px inset black;padding: 0px 12px;font-size: 20px;transform: translateY(4px);">🔍︎</button>
+            <button aria-label="Search button" type="submit" style="border-radius: 10px; border: 3px inset black;padding: 0px 12px;font-size: 20px;transform: translateY(4px);">🔍︎</button>
         </form>
 
             <img class="image1" src="images/logo.png" alt="Linkly Logo">

@@ -296,3 +296,16 @@ body {
 #right {
   width: 60%;
 }
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: white;
+    border: 3px solid darkblue;
+}
+::-webkit-scrollbar-thumb {
+    background-color: darkblue;
+}
+
+html {
+  scrollbar-color: darkblue white; /* thumb color | track color */
+}

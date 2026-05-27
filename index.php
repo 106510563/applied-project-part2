@@ -47,6 +47,11 @@
                 <th>Paul Harrington</th>
             </tr>
         </table>
+        <button aria-expanded="false" aria-controls="faq-content" style="margin: 0px 60px;padding: 4px;border-radius: 7px;">Toggle FAQ (for screenreaders)</button>
+                <div id="faq-content" hidden>
+                    Where can I contact for inquiries regarding a specific subject?
+                    Our email is avaliable for any inquiries about anything you can think of (info@linkly.com)<br>Otherwise, you can call our Australian phone number at +61 XXX-XXX-XXX, or our international phone number at +XX XXX-XXX-XXX.<br>For inquiries regarding job positions, press 1. For inquiries regarding buying off our platform, press 2. For inquiries regarding selling off our platform, press 3.
+                </div>
             <details>
                 <summary style="font-size: 25px; text-align: center;"><strong>FAQ</strong></summary>
                 <ol>
