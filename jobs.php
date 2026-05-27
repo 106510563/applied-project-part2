@@ -47,7 +47,7 @@
             <p>No matter your expertise, here at Linkly you'll be a valuable member of the family, your skills will be cherised and you'll help us strive to make a bright future for humanity.</p>
         
         <section class="job">
-            <h4>E-Commerce Customer Service Officer</h4>
+            <h4>E-Commerce Customer Service Officer (ECCSO)</h4>
             <div>
                 <p>As the E-Commerce Customer Service Officer, you will be the face of our company, the people who will assist our clients through any problem they may have. This job is meant for the charismatic and the proactive.</p>
                 <p>This job is available for casual and partime workers, a minimum of 16 hours a week must be worked to maintain this postition.</p>
@@ -72,7 +72,7 @@
             </div>
         </section>
         <section class="job">
-            <h4>E-Commerce Coordinator</h4>
+            <h4>E-Commerce Coordinator (ECC01)</h4>
             <div>
                 <p>You will head an integral part of operations here at Linkly, whether that be montioring and maintainance of the site, tracking product sales, or assisting in marketing our various products that will bring humanity to the future.</p>
                 <p>This job is available for full time employment only and 36 hours of work is required by all employees, 40 hours of work per week is expected by everyone who applies for this role.</p>
