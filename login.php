@@ -2,6 +2,7 @@
 session_start();
 require_once("settings.php");
 $conn = mysqli_connect($host, $username, $password, $sql_db);
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

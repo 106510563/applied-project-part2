@@ -12,10 +12,13 @@
   <body>
     <?php include 'inc_files/header.inc'; ?>
     <?php include 'inc_files/nav.inc'; ?>
-          <form method="post" id="signup" action="">
+        <form method="post" id="signup" action="">
 
           <label for="username">Username: </label>
           <input type="text" name="username" placeholder="Enter Username" required><br>
+
+          <label for="email">Email: </label>
+          <input type="email" name="email" placeholder="Enter Email" required><br>
 
           <label for="password">Password: </label>
           <input type="password" name="password" placeholder="Enter Password" required>
@@ -35,11 +38,12 @@
 
   // Get form data
   $username = trim($_POST["username"]);
+  $email = trim($_POST["email"]);
   $password = trim($_POST["password"]);
 
   // Insert user into the database
   $query = "SELECT * FROM users WHERE username='$username'";
-  $insert_user = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+  $insert_user = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
   $result = mysqli_query($conn, $insert_user);
 
 
