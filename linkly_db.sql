@@ -77,21 +77,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Table structure for table `manage` (meant for manage.php)
+-- Data for `manage` account for access to manage.php
 --
 
-CREATE TABLE `manage` (
-  `manager_id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
-
---
--- Data for `manage`
---
-
-INSERT INTO `manage` (`manager_id`, `username`, `email`, `password`) VALUES 
+INSERT INTO `users` (`user_id`, `username`, `email`, `password`) VALUES 
 (420, 'admin', 'admin@suot.com', 'admin');
 
 --
