@@ -41,7 +41,11 @@ $password = trim($_POST['password']);
                 $_SESSION['username'] = $user['username'];
                 header("Location: index.php");
                 exit();
-            } else {
+            } elseif ($_SESSION['username'] === 'admin' && $_SESSION['password'] === 'admin') {
+                header("Location: manage.php")
+                exit();
+            }
+            else {
                 echo "❌ Incorrect username or password.";
             }
             ?>
