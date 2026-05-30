@@ -54,7 +54,7 @@
                 // currently only have it working so it comes up with results relating to the name and reference code of a job
 
                 $result = mysqli_query($conn, $sql); // sends search query to the db and returns the retrived values under $result
-                if (mysqli_num_rows($result) > 0) {
+                if (mysqli_num_rows($result) > 0) { // check to determine if a db returned any record of the q results
                     echo "<table border='1' cellpadding='5'>";
                     echo "<tr><th>ID</th><th>Name</th><th>Reference Code</th><th>Salary</th><th>Casual</th><th>Part-Time</th><th>Full-Time</th></tr>";
                     while ($row = mysqli_fetch_assoc($result)) { // gets the search query to output a table that matches the results

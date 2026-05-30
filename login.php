@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("settings.php");
-$conn = mysqli_connect($host, $username, $password, $sql_db);
+$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,12 +16,12 @@ $conn = mysqli_connect($host, $username, $password, $sql_db);
 
 
     </head>
-
 <<<<<<< HEAD
 //user input
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 =======
+
     <body>
         <?php include 'inc_files/header.inc'; ?>
         <?php include 'inc_files/nav.inc'; ?>
@@ -41,7 +41,11 @@ $password = trim($_POST['password']);
                 $_SESSION['username'] = $user['username'];
                 header("Location: index.php");
                 exit();
-            } else {
+            } elseif ($_SESSION['username'] === 'admin' && $_SESSION['password'] === 'admin') {
+                header("Location: manage.php")
+                exit();
+            }
+            else {
                 echo "❌ Incorrect username or password.";
             }
             ?>

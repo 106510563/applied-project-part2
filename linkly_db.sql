@@ -76,6 +76,12 @@ CREATE TABLE `users` (
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Data for `manage` account for access to manage.php
+--
+
+INSERT INTO `users` (`user_id`, `username`, `email`, `password`) VALUES 
+(420, 'admin', 'admin@suot.com', 'admin');
 
 --
 -- Dumping data for table `jobs`
