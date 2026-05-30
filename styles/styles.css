@@ -249,8 +249,8 @@ th {
   color: #0E0C59;
 }
 
-#signup input{
-  width: 100%;
+#signup .forminp {
+  width: 95%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
