@@ -63,12 +63,52 @@
                         $skills = isset($_POST["skills"])? implode(", ", $_POST["skills"]): ""; // since skills is an array it needs a separate thing
                         $skills = sanitise_input($skills);
 
+                        if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+    if (empty($_POST["gname"]))
+    {
+        $first_nameErr = "Name is required";
+    }
+    else
+    {
+        $first_name = test_input($_POST["gname"]);
+        // check if name only contains letters and whitespace
+        if (!preg_match("/^[a-zA-Z ]*$/",$first_name))
+        {
+            $first_nameErr = "Only letters and white space allowed";
+        }
+    }
+}
+
                         // validating form inputs (server side validation)
                         $errors = [];
-                        if (empty($first_name))
-                                $errors[] = "First name is required.";
+                        if (empty($data['email'])) {
+                                $errors['email'] = "Email is required.";
+                        } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                                $errors['email'] = "Invalid email format.";
+                        }
                         if (empty($last_name))
                                 $errors[] = "Last name is required.";
+                        if (empty($dob))
+                                $errors[] = "Date of Birth is required.";
+                        if (empty($gender))
+                                $errors[] = "Gender is required.";
+                        if (empty($address))
+                                $errors[] = "Address is required.";
+                        if (empty($suburb))
+                                $errors[] = "Suburb is required.";
+                        if (empty($state))
+                                $errors[] = "State is required.";
+                        if (empty($postcode))
+                                $errors[] = "Postcode is required.";
+                        if (empty($job_ref))
+                                $errors[] = "Job reference is required.";
+                        if (empty($mobile_number))
+                                $errors[] = "Mobile number is required.";
+                        if (empty($email_address))
+                                $errors[] = "Email address is required.";
+                        if (empty($exp))
+                                $errors[] = "'Previous experience' category is required.";
                         if (!filter_var($email_address, FILTER_VALIDATE_EMAIL))
                                 $errors[] = "Invalid email address.";
                         if (!preg_match("/^[0-9]{8,15}$/", $mobile_number))
@@ -118,9 +158,39 @@
                                 $eoiNumber = mysqli_insert_id($conn);
                                 echo "<p><strong>Thank you $first_name $last_name for your application to Linkly. We will contact you at your phone number ($mobile_number) momentarily.</strong></p>";                
                                 echo "<p>Your EOI Number is: <strong>$eoiNumber</strong></p>";
+                                echo "<p><strong>Here are your details:</strong></p>";
+                                echo "<p>
+                                <strong>First (Given) Name:</strong> $first_name
+                                <br>
+                                <strong>Preferred Name (if applicable):</strong> $pref_name
+                                <br>
+                                <strong>Last Name:</strong> $last_name
+                                <br>
+                                <strong>Date of Birth:</strong> $dob
+                                <br>
+                                <strong>Gender:</strong> $gender
+                                <br>
+                                <strong>Address:</strong> $address, $suburb ($postcode), $state
+                                <br>
+                                <strong>Job Position and Reference:</strong> $job_title ($job_ref)
+                                <br>
+                                <strong>Mobile Number: </strong>$mobile_number
+                                <br>
+                                <strong>Home Number (if applicable):</strong> $home_number
+                                <br>
+                                <strong>Email Address:</strong> $email_address
+                                <br>
+                                <strong>Your skills:</strong> $skills
+                                <br>
+                                <strong>Other skills (if applicable):</strong> $otherskills
+                                <br>
+                                <strong>Previous Experience:</strong> $exp
+                                </p>";
                         } else {
                                 echo "<p>Error submitting application. Please try submitting the <a href='apply.php'>form</a> again.</p>";
                         }
+
+
                 
                 ?> 
                 <p>
