@@ -18,48 +18,48 @@
         For more information on the specific job positions, please ensure to read the <a href="jobs.html">Jobs</a> page. <br>
         Fields marked with * are required.</p>
 
-        <form action="process_eoi.php" method="POST" novalidate>
+        <form action="process_eoi.php" method="POST" novalidate="novalidate">
             <fieldset>
                 <legend><strong>Applicant Details</strong></legend>
                 <p><label for="gname">Given Name*</label>
-                <input type="text" name= "gname" id="gname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$" required="required"></p>
+                <input type="text" name= "gname" id="gname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$"></p>
                 <p><label for="pname">Preferred Name</label>
                 <input type="text" name= "pname" id="pname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$"></p>
                 <p><label for="fname">Family Name*</label>
-                <input type="text" name= "fname" id="fname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$" required="required"></p>
+                <input type="text" name= "fname" id="fname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$"></p>
                 <p><label for="date">Date of Birth*</label> 
-			    <input type="date" name= "date" id="date" placeholder="dd/mm/yyyy" maxlength="10" size="10" pattern="\d{1,2}\/\d{1,2}\/\d{4}" required="required">
+			    <input type="date" name= "date" id="date" placeholder="dd/mm/yyyy" maxlength="10" size="10" pattern="\d{1,2}\/\d{1,2}\/\d{4}">
 		        </p>
 
 
                 <p>Gender</p> 
                 <div id="gender">
-				<input type="radio" id="male" name="gender[]" value="male">
+				<input type="radio" name="gender" value="Male">
                 <label for="male">Male</label><br> 
-				<input type="radio" id="female" name="gender[]" value="female">
+				<input type="radio" name="gender" value="Female">
                 <label for="female">Female</label> <br>
-				<input type="radio" id="unspec" name="gender[]" value="unspec">
+				<input type="radio" name="gender" value="Other">
                 <label for="unspec">Other/Unspecified</label> 
                 </div>
 
                 <p><label for="street">Street Address*</label>
-                <input type="text" name= "street" id="street" maxlength="40" size="40" required="required"></p>
+                <input type="text" name= "street" id="street" maxlength="40" size="40"></p>
                 <p><label for="suburb">Suburb/Town*</label>
-                <input type="text" name= "suburb" id="suburb" maxlength="40" size="40" required="required"></p>
+                <input type="text" name= "suburb" id="suburb" maxlength="40" size="40"></p>
                 <p><label for="state">State*</label>
-                	<select name="state" id="state" required="required">
+                	<select name="state" id="state">
                 <option value="">Please Select</option>
-				<option value="vic">VIC</option>			
-				<option value="nsw">NSW</option>
-                <option value="qld">QLD</option>
-                <option value="sa">SA</option>
-                <option value="wa">WA</option>
-                <option value="nt">NT</option>
-                <option value="tas">TAS</option>
-                <option value="act">ACT</option>
+				<option value="VIC">VIC</option>			
+				<option value="NSW">NSW</option>
+                <option value="QLD">QLD</option>
+                <option value="SA">SA</option>
+                <option value="WA">WA</option>
+                <option value="NT">NT</option>
+                <option value="TAS">TAS</option>
+                <option value="ACT">ACT</option>
 			        </select></p>
                 <p><label for="postcode">Postcode*</label>
-                <input type="text" name= "postcode" id="postcode" maxlength="4" size="5" pattern="[0-9]{4,4}" required="required"></p>
+                <input type="text" name= "postcode" id="postcode" maxlength="4" size="5" pattern="[0-9]{4,4}"></p>
             </fieldset>
 
             <fieldset>
@@ -67,45 +67,48 @@
                 <label for="job">Position Name</label>
                 			<select name="job" id="job">
                 <option value="">Please Select</option>
-				<option value="job1">E-Commerce Customer Service Officer</option>			
-				<option value="job2">E-Commerce Coordinator</option>
+				<option value="E-Commerce Customer Service Officer">E-Commerce Customer Service Officer</option>			
+				<option value="E-Commerce Coordinator">E-Commerce Coordinator</option>
 			        </select>
                 <p><label for="ref">Job Reference Number*</label>
-                <input type="text" name= "ref" id="ref" maxlength="5" size="7" pattern="[a-zA-Z0-9]+" required="required"></p>
+                <input type="text" name= "ref" id="ref" maxlength="5" size="7" pattern="[a-zA-Z0-9]+"></p>
             </fieldset>
 
             <fieldset>
                 <legend><strong>Contact Details</strong></legend>
                 <p><label for="mobile">Mobile Number*</label>
-                <input type="tel" name= "mobile" id="mobile" maxlength="12" size="10" required="required" pattern="[0-9]{8,12}" ></p>
+                <input type="tel" name= "mobile" id="mobile" maxlength="12" size="10" pattern="[0-9]{8,12}" ></p>
                 <p><label for="home">Home Number</label>
                 <input type="tel" name= "home" id="home" maxlength="12" size="10" pattern="[0-9]{10,10}" ></p>
                 <p><label for="email">Email Address*</label>
-                <input type="email" name= "email" id="email" maxlength="30" size="20" required="required"></p>
+                <input type="email" name= "email" id="email" maxlength="30" size="20"></p>
+                <?php if (isset($errors['email'])): ?>
+                    <div class="error"><?php echo $errors['email']; ?></div>
+                <?php endif; ?>
             </fieldset>
 
             <fieldset>
                 <legend><strong>Skills</strong></legend>
 				<input type="checkbox" id="adapt" name="skills[]" value="adapt">
-                <label for="adapt">Adaptibility</label> 
+                <label for="Adaptibility">Adaptibility</label> 
                 <br>
 				<input type="checkbox" id="create" name="skills[]" value="create">
-			    <label for="create">Creative</label> 
+			    <label for="Creative">Creative</label> 
                 <br>
 				<input type="checkbox" id="comm" name="skills[]" value="comm">
-			    <label for="comm">Communication</label> 
+			    <label for="Communication">Communication</label> 
                 <br>
 				<input type="checkbox" id="prob" name="skills[]" value="prob">
-                <label for="prob">Problem Solving</label> 
+                <label for="Problem Solving">Problem Solving</label> 
                 <br>
 				<input type="checkbox" id="lead" name="skills[]" value="lead">
-                <label for="lead">Leadership</label> 
+                <label for="Leadership">Leadership</label> 
                 <br>
 				<input type="checkbox" id="timeman" name="skills[]" value="timeman">
-                <label for="timeman">Time Management</label> 
+                <label for="Time Management">Time Management</label> 
                 <br>
 				<input type="checkbox" id="other" name="skills[]" value="other">
-                <label for="other">Other (please specify below)</label> 
+                <label for="Other">Other (please specify below)</label> 
 
                 <p><label for="otherskills">Other Skills</label></p>
 			    <p><textarea id="otherskills" name="otherskills" rows="5" cols="50" placeholder="List other skills if necessary..."></textarea></p>
