@@ -42,7 +42,7 @@ $password = trim($_POST['password']);
                 header("Location: index.php");
                 exit();
             } elseif ($_SESSION['username'] === 'admin' && $_SESSION['password'] === 'admin') {
-                header("Location: manage.php")
+                header("Location: manage.php");
                 exit();
             }
             else {
