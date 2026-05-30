@@ -28,7 +28,7 @@
                 <p><label for="fname">Family Name*</label>
                 <input type="text" name= "fname" id="fname" maxlength="15" size="10" pattern="^[a-zA-Z ]+$" required="required"></p>
                 <p><label for="date">Date of Birth*</label> 
-			    <input type="text" name= "date" id="date" placeholder="dd/mm/yyyy" maxlength="10" size="10" pattern="\d{1,2}\/\d{1,2}\/\d{4}" required="required">
+			    <input type="date" name= "date" id="date" placeholder="dd/mm/yyyy" maxlength="10" size="10" pattern="\d{1,2}\/\d{1,2}\/\d{4}" required="required">
 		        </p>
 
 
