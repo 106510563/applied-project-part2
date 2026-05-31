@@ -16,11 +16,6 @@ $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
 
     </head>
-<<<<<<< HEAD
-//user input
-$username = trim($_POST['username']);
-$password = trim($_POST['password']);
-=======
 
     <body>
         <?php include 'inc_files/header.inc'; ?>
@@ -33,20 +28,17 @@ $password = trim($_POST['password']);
             $password = trim($_POST['password']);
 
             // Simple query to check credentials
-            $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-            $result = mysqli_query($conn, $query);
+            $stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE '$username' AND password = '$password'");
+            $result = mysqli_stmt_get_result($stmt);
             $user = mysqli_fetch_assoc($result);
 
-            if ($user) {
+            if ($user && password_verify($password, $user['password'])) {
                 $_SESSION['username'] = $user['username'];
                 header("Location: index.php");
                 exit();
             } elseif ($_SESSION['username'] === 'admin' && $_SESSION['password'] === 'admin') {
                 header("Location: manage.php");
                 exit();
-            }
-            else {
-                echo "❌ Incorrect username or password.";
             }
             ?>
         </article>
