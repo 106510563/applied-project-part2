@@ -59,10 +59,11 @@ CREATE TABLE `jobs` (
   `job_id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `ref` varchar(5) DEFAULT NULL,
+  `desc` varchar(300) NOT NULL,
   `salary` varchar(10) NOT NULL,
-  `casual` tinyint(1) NOT NULL,
-  `parttime` tinyint(1) NOT NULL,
-  `fulltime` tinyint(1) NOT NULL
+  `pref` varchar(300) NOT NULL,
+  `ess` varchar(300) NOT NULL,
+  `hours` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -87,9 +88,9 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`) VALUES
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`job_id`, `name`, `ref`, `salary`, `casual`, `parttime`, `fulltime`) VALUES
-(1, 'E-Commerce Customer Service Officer', 'ECCSO', '50,000', 1, 1, 0),
-(2, 'E-Commerce Coordinator', 'ECC01', '175,000', 0, 0, 1);
+INSERT INTO `jobs` (`job_id`, `name`, `ref`, `desc`, `salary`, `pref`, `ess`, `hours`) VALUES
+(1, 'E-Commerce Customer Service Officer', 'ECCSO', 'As the E-Commerce Customer Service Officer, you will be the face of our company, the people who will assist our clients through any problem they may have. This job is meant for the charismatic and the proactive.', '$50,000', 'An approachable and helpful personality. A proactive and quick thinker. Someone with a "always ready to help" mindset. Customer service is highly preferable.', 'Answering phone calls from clients. Referring clients to resources or other members of staff for assistance when necessary. Assisting clients in finding solutions to their problems, whether that be on call or in person.', 'Part-Time 16'),
+(2, 'E-Commerce Coordinator', 'ECC01', 'You will head an integral part of operations here at Linkly, whether that be montioring and maintainance of the site, tracking product sales, or assisting in marketing our various products that will bring humanity to the future.', '$175,000', 'A mature, calm team player. A can-do attitude with a business-first mindset. A proactive and eager work-ethic who is ready to lead their team into the future. Managerial experience is highly preferable.', 'Keeping track of all operations related to position. Ensuring performance and quotas are met by the team. Setting an example for the team though leadership, work ethic, and teamwork.', 'Full-Time 36');
 
 
 
