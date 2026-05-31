@@ -39,7 +39,20 @@
 
                 //Changing a single EOI status
                 <?php
-                
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'] && $_POST['action'] === 'change_status')) {
+                     $eoi_id = (int)($_POST['eoi_id'] ?? 0);
+                     $new_status = trim($_POST['new_status'] ?? '');
+                     if ($eoi_id > 0 && in_array($new_status, $allowed_status)) {
+                        $sql = "UPDATE eoi SET status = '$new_status' WHERE eoi_id = $eoi_id";
+                        if (mysqli_query($conn, $sql)) {
+                                echo "<p>EOI #" . $eoi_id . " status updated to <strong>" . htmlspecialcharacters($new_status) . "</strong>.</p>";
+                        } else {
+                                echo "<p>Update failed: " . mysqli_error($conn) . "</p>";
+                        }
+                     } else {
+                        echo "<p>Invalid status change request.</p>";
+                     }
+                }
                 ?>
 
                 <?php
