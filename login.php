@@ -45,7 +45,7 @@ $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
         }
         ?>
 
-        <form method="POST" action="login.php">
+        <form method="POST" id="login" action="login.php">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required><br>
 
