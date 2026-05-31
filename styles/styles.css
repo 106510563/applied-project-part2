@@ -234,19 +234,22 @@ th {
 /*signup.php CSS*/
 
 #signup {
-  background: white;
-  padding: 2rem;
-  margin-top: 4rem;
+  background: #ffffff;
+  border: 1.5px solid #1a7abf;
+  border-radius: 12px;
+  padding: 20px 30px;
   width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 420px;
+  margin: auto;
+  display: block;
 }
 
 #signup label {
   display: block;
-  margin-bottom: 2px;
-  color: #0E0C59;
+  font-size: 14px;
+  color: #185fa5;
+  font-weight: bold;
+  margin-bottom: 4px;
 }
 
 #signup .forminp {
@@ -257,55 +260,13 @@ th {
   border-radius: 5px;
 } 
 
-/* Hover effect */
 #signup input[type="submit"]:hover {
     background-color: #0056b3;
 }
-
-#gname, #pname {
-  margin-right: 30px;
-}
-
-figure {
-  border: 3px double white;
-  padding: 10px;
-}
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
-body {
-  width: 90%;
-}
-.image {
-  margin-left: 50px;
-  margin-top: 23px;
-  width: 140px;
-}
-
-#otherskills, #exp {
-  width: 95%;
-}
-}
-
-#left {
-  width: 40%;
-  height: 700px;
-  overflow-y: scroll;
-  overflow-x: clip;
-}
-
-#right {
-  width: 60%;
-}
-
-::-webkit-scrollbar {
-    width: 12px;
-    background-color: white;
-    border: 3px solid darkblue;
-}
-::-webkit-scrollbar-thumb {
-    background-color: darkblue;
-}
-
-html {
-  scrollbar-color: darkblue white; /* thumb color | track color */
+.message {
+    text-align: center;
+    font-size: 15px;
+    margin: 10px auto;
+    max-width: auto;
+    min-height: 5px;
 }
