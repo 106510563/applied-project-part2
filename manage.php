@@ -21,8 +21,8 @@
                         $allowed_status = array('New', 'Current', 'Final');
                 ?>
 
-                //Deleting EOIs for a job reference
                 <?php
+                //Deleting EOIs for a job reference
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete_by_jobref') {
                         $job_ref = mysqli_real_escape_string($conn, trim($_POST['job_ref'] ?? ''));
                         if (job_ref !== '') {
@@ -37,8 +37,8 @@
                 }
                 ?>
 
-                //Changing a single EOI status
                 <?php
+                //Changing a single EOI status
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'] && $_POST['action'] === 'change_status')) {
                      $eoi_id = (int)($_POST['eoi_id'] ?? 0);
                      $new_status = trim($_POST['new_status'] ?? '');
@@ -55,8 +55,8 @@
                 }
                 ?>
 
-                //read filter
                 <?php
+                //read filter
                 $filter_jobref = trim($_GET['filter_jobref'] ?? '');
                 $filter_fname = trim($_GET['filter_fname'] ?? '');
                 $filter_lname = trim($_GET['filter_lname'] ?? '');
@@ -85,7 +85,7 @@
                 $result = mysqli_query($conn, $sql);
                 ?>
 
-                //EOI management
+                <!-- EOI management -->
 		<form method="GET" action="">
 			<label for="filter_jobref">Job Reference:</label>
 			<input type="text" id="filter_jobref" name="filter_jobref" value="<?php echo htmlspecialchars($filter_jobref); ?>" placeholder="e.g. DEV001">
@@ -115,7 +115,16 @@
 			<a href="?">Reset</a>
 		</form>
 
+                <!-- Delete by Job Reference -->
+                 <form method="POST" action="" onsubmit="return confirm('Delete ALL EOIs for this job reference? This cannot be undone.')">
+                        <input type="hidden" name="action" value="delete_by_jobref">
+                        <label for="del_jobref">Delete all EOIs by Job Reference:</label>
+                        <input type="text" id="del_jobref" placeholder="e.g. LOL001" required>
+                        <button type="submit">Delete</button>
+                </form>
+
                 <?php
+                //the results table
                         if (isset($_GET['eoi'])) {
                                 $eoi = mysqli_real_escape_string($conn, $_GET['eoi']);
                                 $sql = "SELECT * FROM eoi";
