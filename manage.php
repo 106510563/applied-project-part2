@@ -55,6 +55,66 @@
                 }
                 ?>
 
+                //read filter
+                <?php
+                $filter_jobref = trim($_GET['filter_jobref'] ?? '');
+                $filter_fname = trim($_GET['filter_fname'] ?? '');
+                $filter_lname = trim($_GET['filter_lname'] ?? '');
+                $sort_field = $_GET['sort_field'] ?? 'eoi_id';
+                $sort_order = strtoupper($_GET['sort_order'] ?? 'ASC');
+
+                if(!in_array($sort_field, $allowed_sort)) sort_field = 'eoi_id';
+                if(!in_array($sort_field, $allowed_sort)) sort_order = 'ASC';
+
+                $where = array();
+                if (filter_jobref !== '') {
+                        $safe_jobref = mysqli_real_escape_string($conn, $filter_jobref);
+                        $where[] = "job_ref = 'safe_jobref'";
+                }
+                if (filter_fname !== '') {
+                        $safe_fname = mysqli_real_escape_string($conn, $filter_fname);
+                        $where[] = "first_name LIKE '%$safe_fname%'";
+                }
+                if (filter_lname !== '') {
+                        $safe_lname = mysqli_real_escape_string($conn, $filter_lname);
+                        $where[] = "last_name LIKE '%$safe_lname%'";
+                }
+
+                $where_sql = count($where) ? 'WHERE ' . implode(' AND ', $where) : '';
+                $sql = "SELECT * FROM eoi $where_sql ORDER BY $sort_field $sort_order";
+                $result = mysqli_query($conn, $sql);
+                ?>
+
+                //EOI management
+		<form method="GET" action="">
+			<label for="filter_jobref">Job Reference:</label>
+			<input type="text" id="filter_jobref" name="filter_jobref" value="<?php echo htmlspecialchars($filter_jobref); ?>" placeholder="e.g. DEV001">
+
+			<label for="filter_fname">First Name:</label>
+			<input type="text" id="filter_fname" name="filter_fname" value="<?php echo htmlspecialchars($filter_fname); ?>" placeholder="First name">
+
+			<label for="filter_lname">Last Name:</label>
+			<input type="text" id="filter_lname" name="filter_lname" value="<?php echo htmlspecialchars($filter_lname); ?>" placeholder="Last name">
+
+			<label for="sort_field">Sort By:</label>
+			<select id="sort_field" name="sort_field">
+				<?php foreach ($allowed_sort as $f): ?>
+					<option value="<?php echo $f; ?>" <?php if ($sort_field === $f) echo "selected"; ?>>
+						<?php echo ucfirst(str_replace('_', ' ', $f)); ?>
+					</option>
+				<?php endforeach; ?>
+			</select>
+
+			<label for="sort_order">Order:</label>
+			<select id="sort_order" name="sort_order">
+				<option value="ASC"  <?php if ($sort_order === 'ASC')  echo "selected"; ?>>Ascending</option>
+				<option value="DESC" <?php if ($sort_order === 'DESC') echo "selected"; ?>>Descending</option>
+			</select>
+
+			<button type="submit">Filter / Sort</button>
+			<a href="?">Reset</a>
+		</form>
+
                 <?php
                         if (isset($_GET['eoi'])) {
                                 $eoi = mysqli_real_escape_string($conn, $_GET['eoi']);
