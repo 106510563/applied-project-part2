@@ -14,10 +14,37 @@
                         include "inc_files/nav.inc";
                         require_once "settings.php";
                 ?>
+                
+                <?php
+                        $allowed_sort = array('eoi_id', 'first_name', 'pref_name', 'last_name', 'dob', 'gender', 'address', 'suburb', 'state', 'postcode', 'job_title', 'job_ref', 'mobile_number', 'home_number', 'email', 'skills', 'otherskills', 'exp', 'status');
+                        $allowed_order = array('ASC', 'DESC');
+                        $allowed_status = array('New', 'Current', 'Final');
+                ?>
+
+                //Deleting EOIs for a job reference
+                <?php
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete_by_jobref') {
+                        $job_ref = mysqli_real_escape_string($conn, trim($_POST['job_ref'] ?? ''));
+                        if (job_ref !== '') {
+                                $sql = "DELETE FROM eoi WHERE job_ref = '$job_ref'";
+                                if (mysqli_query($conn, $sql)) {
+                                        $affected = mysqli_affected_rows($conn);
+                                        echo "<p>Deleted: " . $affected . " EOI(s) with job reference (strong)" . htmlspecialcharacters($job_ref) . "</strong>.</p>";
+                                } else {
+                                        echo "<p>Please provide a job reference to be deleted.</p>";
+                                }
+                        }
+                }
+                ?>
+
+                //Changing a single EOI status
+                <?php
+                
+                ?>
 
                 <?php
                         if (isset($_GET['eoi'])) {
-                                $eoi = mysqli_read_escape_string($conn, $_GET['eoi']);
+                                $eoi = mysqli_real_escape_string($conn, $_GET['eoi']);
                                 $sql = "SELECT * FROM eoi";
                                 $result = mysqli_query($conn, $sql);
 
@@ -44,8 +71,10 @@
                                                 echo "<th>" . $row['skills'] . "</th>";
                                                 echo "<th>" . $row['otherskills'] . "</th>";
                                                 echo "<th>" . $row['exp'] . "</th>";
-                                                echo "<th>" . $row['status'] . "</th>";
+                                                echo "<th>" . $row['status'] . "</th>"
+                                                echo "</tr>"; 
                                         }
+                                        echo "</table>";
                                 }
                         }
                 ?>
