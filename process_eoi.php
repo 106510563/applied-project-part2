@@ -43,78 +43,117 @@
                         }
 
                         // getting + sanitising the data from the form
-                        $first_name = sanitise_input($_POST["gname"] ?? "");
-                        $pref_name = sanitise_input($_POST["pname"]?? "");
-                        $last_name  = sanitise_input($_POST["fname"] ?? "");
-                        $dob = sanitise_input($_POST["date"] ?? "");
-                        $gender = sanitise_input($_POST["gender"] ?? "");
-                        $address = sanitise_input($_POST["street"] ?? "");
-                        $suburb = sanitise_input($_POST["suburb"] ?? "");
-                        $state = sanitise_input($_POST["state"] ?? "");
-                        $postcode = sanitise_input($_POST["postcode"] ?? "");
-                        $job_title = sanitise_input($_POST["job"] ?? "");
-                        $job_ref = sanitise_input($_POST["ref"] ?? "");
-                        $mobile_number = sanitise_input($_POST["mobile"] ?? "");
-                        $home_number = sanitise_input($_POST["home"] ?? "");
-                        $email_address = sanitise_input($_POST["email"] ?? "");
-                        $otherskills = sanitise_input($_POST["otherskills"] ?? "");
-                        $exp = sanitise_input($_POST["exp"] ?? "");
+$first_name   = sanitise_input($_POST["gname"] ?? "");
+$pref_name    = sanitise_input($_POST["pname"] ?? "");
+$last_name    = sanitise_input($_POST["fname"] ?? "");
+$dob          = sanitise_input($_POST["date"] ?? "");
+$gender       = sanitise_input($_POST["gender"] ?? "");
+$address      = sanitise_input($_POST["street"] ?? "");
+$suburb       = sanitise_input($_POST["suburb"] ?? "");
+$state        = sanitise_input($_POST["state"] ?? "");
+$postcode     = sanitise_input($_POST["postcode"] ?? "");
+$job_title    = sanitise_input($_POST["job"] ?? "");
+$job_ref      = sanitise_input($_POST["ref"] ?? "");
+$mobile_number = sanitise_input($_POST["mobile"] ?? "");
+$home_number  = sanitise_input($_POST["home"] ?? "");
+$email_address = sanitise_input($_POST["email"] ?? "");
+$otherskills  = sanitise_input($_POST["otherskills"] ?? "");
+$exp          = sanitise_input($_POST["exp"] ?? "");
 
-                        $skills = isset($_POST["skills"])? implode(", ", $_POST["skills"]): ""; // since skills is an array it needs a separate thing
-                        $skills = sanitise_input($skills);
+$skills = isset($_POST["skills"]) ? implode(", ", $_POST["skills"]) : "";
+$skills = sanitise_input($skills);
 
-                        if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
-    if (empty($_POST["gname"]))
-    {
-        $first_nameErr = "Name is required";
-    }
-    else
-    {
-        $first_name = test_input($_POST["gname"]);
-        // check if name only contains letters and whitespace
-        if (!preg_match("/^[a-zA-Z ]*$/",$first_name))
-        {
-            $first_nameErr = "Only letters and white space allowed";
-        }
-    }
+// Validation
+$errors = [];
+
+// First Name
+if (empty($first_name)) {
+    $errors['first_name'] = "First name is required.";
+} elseif (!preg_match("/^[a-zA-Z ]+$/", $first_name)) {
+    $errors['first_name'] = "First name can only contain letters and spaces.";
 }
 
-                        // validating form inputs (server side validation)
-                        $errors = [];
-                        if (empty($data['email'])) {
-                                $errors['email'] = "Email is required.";
-                        } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-                                $errors['email'] = "Invalid email format.";
-                        }
-                        if (empty($last_name))
-                                $errors[] = "Last name is required.";
-                        if (empty($dob))
-                                $errors[] = "Date of Birth is required.";
-                        if (empty($gender))
-                                $errors[] = "Gender is required.";
-                        if (empty($address))
-                                $errors[] = "Address is required.";
-                        if (empty($suburb))
-                                $errors[] = "Suburb is required.";
-                        if (empty($state))
-                                $errors[] = "State is required.";
-                        if (empty($postcode))
-                                $errors[] = "Postcode is required.";
-                        if (empty($job_ref))
-                                $errors[] = "Job reference is required.";
-                        if (empty($mobile_number))
-                                $errors[] = "Mobile number is required.";
-                        if (empty($email_address))
-                                $errors[] = "Email address is required.";
-                        if (empty($exp))
-                                $errors[] = "'Previous experience' category is required.";
-                        if (!filter_var($email_address, FILTER_VALIDATE_EMAIL))
-                                $errors[] = "Invalid email address.";
-                        if (!preg_match("/^[0-9]{8,15}$/", $mobile_number))
-                                $errors[] = "Invalid mobile number.";
-                        if (!preg_match("/^[A-Za-z0-9]{5}$/", $job_ref))
-                                $errors[] = "Invalid job reference.";
+// Last Name
+if (empty($last_name)) {
+    $errors['last_name'] = "Last name is required.";
+} elseif (!preg_match("/^[a-zA-Z ]+$/", $last_name)) {
+    $errors['last_name'] = "Last name can only contain letters and spaces.";
+}
+
+// Email
+if (empty($email_address)) {
+    $errors['email_address'] = "Email address is required.";
+} elseif (!filter_var($email_address, FILTER_VALIDATE_EMAIL)) {
+    $errors['email_address'] = "Invalid email address.";
+}
+
+// Date of Birth
+if (empty($dob)) {
+    $errors['dob'] = "Date of Birth is required.";
+}
+
+// Gender
+if (empty($gender)) {
+    $errors['gender'] = "Gender is required.";
+}
+
+// Address
+if (empty($address)) {
+    $errors['address'] = "Address is required.";
+}
+
+// Suburb
+if (empty($suburb)) {
+    $errors['suburb'] = "Suburb is required.";
+}
+
+// State
+if (empty($state)) {
+    $errors['state'] = "State is required.";
+}
+
+// Postcode
+if (empty($postcode)) {
+    $errors['postcode'] = "Postcode is required.";
+} elseif (!preg_match('/^[0-9]{4}$/', $postcode)) {
+    $errors['postcode'] = "Postcode must be 4 digits.";
+}
+
+// Previous Experience
+if (empty($exp)) {
+    $errors['exp'] = "Previous experience is required.";
+}
+
+// Job Reference
+if (empty($job_ref)) {
+    $errors['job_ref'] = "Job reference is required.";
+} elseif (!preg_match('/^[A-Za-z0-9]{5}$/', $job_ref)) {
+    $errors['job_ref'] = "Job reference must be exactly 5 alphanumeric characters.";
+}
+
+// Mobile Number
+if (empty($mobile_number)) {
+    $errors['mobile_number'] = "Mobile number is required.";
+} elseif (!preg_match('/^[0-9]{8,15}$/', $mobile_number)) {
+    $errors['mobile_number'] = "Mobile number must contain 8–15 digits.";
+}
+
+// error checking
+if (!empty($errors)) {
+
+    echo "<h2>Sorry, Validation Errors Occurred!</h2>";
+    echo "<p>Please resubmit the form with correct validation.</p>";
+    echo "<p><strong>Errors occurring:</strong></p>";
+    echo "<ol>";
+    foreach ($errors as $error) {
+        echo "<li>$error</li>";
+    }
+    echo "</ol>";
+
+    exit; // Stop the script here
+}
+// Database insert code goes here...
+
 
                         // create table if eoi table does not exist
                         $createTable = "CREATE TABLE IF NOT EXISTS eoi(
