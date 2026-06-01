@@ -52,7 +52,7 @@
 
             <?php
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-function sanitise_input($data)
+function sanitise_input($data) #CREATED BY: CIARA SMITH
 {
     if (is_array($data)) {
             return "";
