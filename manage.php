@@ -97,7 +97,7 @@
 			<label for="filter_lname">Last Name:</label>
 			<input type="text" id="filter_lname" name="filter_lname" value="<?php echo htmlspecialchars($filter_lname); ?>" placeholder="Last name">
 
-			<label for="sort_field">Sort By:</label>
+			<br><label for="sort_field">Sort By:</label>
 			<select id="sort_field" name="sort_field">
 				<?php foreach ($allowed_sort as $f): ?>
 					<option value="<?php echo $f; ?>" <?php if ($sort_field === $f) echo "selected"; ?>>
