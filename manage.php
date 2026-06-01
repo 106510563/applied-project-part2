@@ -87,18 +87,20 @@
                 ?>
 
                 <!-- EOI management -->
+                 <article id="manage">
+                        <h1 id="formhead">Manage EOIs</h1>
 		<form method="GET" action="">
 			<label for="filter_jobref">Job Reference:</label>
-			<input type="text" id="filter_jobref" name="filter_jobref" value="<?php echo htmlspecialchars($filter_jobref); ?>" placeholder="e.g. DEV001">
+			<input type="text" class="filter" name="filter_jobref" value="<?php echo htmlspecialchars($filter_jobref); ?>" placeholder="e.g. DEV001">
 
 			<label for="filter_fname">First Name:</label>
-			<input type="text" id="filter_fname" name="filter_fname" value="<?php echo htmlspecialchars($filter_fname); ?>" placeholder="First name">
+			<input type="text" class="filter" id="filter_fname" name="filter_fname" value="<?php echo htmlspecialchars($filter_fname); ?>" placeholder="First name">
 
 			<label for="filter_lname">Last Name:</label>
-			<input type="text" id="filter_lname" name="filter_lname" value="<?php echo htmlspecialchars($filter_lname); ?>" placeholder="Last name">
+			<input type="text" class="filter" id="filter_lname" name="filter_lname" value="<?php echo htmlspecialchars($filter_lname); ?>" placeholder="Last name">
 
 			<br><label for="sort_field">Sort By:</label>
-			<select id="sort_field" name="sort_field">
+			<select class="filter" name="sort_field">
 				<?php foreach ($allowed_sort as $f): ?>
 					<option value="<?php echo $f; ?>" <?php if ($sort_field === $f) echo "selected"; ?>>
 						<?php echo ucfirst(str_replace('_', ' ', $f)); ?>
@@ -107,20 +109,20 @@
 			</select>
 
 			<label for="sort_order">Order:</label>
-			<select id="sort_order" name="sort_order">
+			<select class="filter" name="sort_order">
 				<option value="ASC"  <?php if ($sort_order === 'ASC')  echo "selected"; ?>>Ascending</option>
 				<option value="DESC" <?php if ($sort_order === 'DESC') echo "selected"; ?>>Descending</option>
 			</select>
 
 			<button type="submit">Filter / Sort</button>
-			<a href="?">Reset</a>
+			<button type="reset">Reset</button>
 		</form>
 
                 <!-- Delete by Job Reference -->
                  <form method="POST" action="" onsubmit="return confirm('Delete ALL EOIs for this job reference? This cannot be undone.')">
                         <input type="hidden" name="action" value="delete_by_jobref">
                         <label for="del_jobref">Delete all EOIs by Job Reference:</label>
-                        <input type="text" id="del_jobref" name="job_ref" placeholder="e.g. LOL001" required>
+                        <input type="text" class="filter" id="del_jobref" name="del_jobref" placeholder="e.g. LOL001" required>
                         <button type="submit">Delete</button>
                 </form>
 
@@ -155,7 +157,7 @@
                                 echo "</table>";
                         }
                 ?>
-
+                </article>
                 <?php
                         include "inc_files/footer.inc";
                 ?>

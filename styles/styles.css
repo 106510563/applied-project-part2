@@ -221,7 +221,12 @@ th {
   background-color: whitesmoke;
 }
 
-/*signup.php CSS*/
+/*user sign up and login CSS*/
+#formhead {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 #user_form {
   background: #ffffff;
@@ -235,11 +240,7 @@ th {
   margin-top: 13px;
   margin-bottom: 13px;
 }
-#formhead {
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+
 #user_form h2 {
   text-align: center;
   color: #185fa5;
@@ -356,4 +357,101 @@ html {
 
 #right {
   width: 60%;
+}
+
+/*Manage css*/
+/* Manage article layout */
+#manage {
+  background: lightblue;
+  padding: 0.5em 1em 1em;
+}
+
+#manage #formhead {
+  text-align: center;
+  color: #0e0c59;
+  font-size: 22px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+/* Filter / sort form */
+#manage form {
+  background: white;
+  border: 1px solid #1a7abf;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+}
+
+#manage form label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #0e0c59;
+  white-space: nowrap;
+}
+
+/* .filter inputs and selects inside manage */
+#manage .filter {
+  margin: 0;
+  padding: 4px 8px;
+  border: 1px solid #1a7abf;
+  border-radius: 6px;
+  background: whitesmoke;
+  font-size: 13px;
+  height: auto;
+  width: auto;
+  min-width: 120px;
+}
+
+#manage .filter:focus {
+  outline: 2px solid #37a5dd;
+  border-color: #37a5dd;
+}
+
+/* Buttons inside manage forms */
+#manage form button[type="submit"] {
+  background: #37a5dd;
+  color: #0e0c59;
+  border: 1px solid #0e0c59;
+  border-radius: 7px;
+  padding: 4px 14px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#manage form button[type="submit"]:hover {
+  background: #1c8ec8;
+}
+
+#manage form button[type="reset"] {
+  background: whitesmoke;
+  color: #0e0c59;
+  border: 1px solid #555;
+  border-radius: 7px;
+  padding: 4px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#manage form button[type="reset"]:hover {
+  background: #ddd;
+}
+
+/* Delete form — red styling for the submit button */
+#manage form:has([name="action"][value="delete_by_jobref"]) button[type="submit"] {
+  background: #fff0f0;
+  color: #c0392b;
+  border-color: #c0392b;
+}
+
+#manage form:has([name="action"][value="delete_by_jobref"]) button[type="submit"]:hover {
+  background: #c0392b;
+  color: white;
 }
