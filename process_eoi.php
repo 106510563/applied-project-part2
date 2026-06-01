@@ -165,10 +165,9 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
                 }
 
                 // validating form inputs (server side validation)
-                $errors = [];
-                if (empty($data['email'])) {
+                if (empty($email_address)) {
                         $errors['email'] = "Email is required.";
-                } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                } elseif (!filter_var($email_address, FILTER_VALIDATE_EMAIL)) {
                         $errors['email'] = "Invalid email format.";
                 }
                 if (empty($last_name))
@@ -253,8 +252,19 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
                         $otherskills,
                         $exp
                 );
+                $check = mysqli_prepare($conn, 
+                "SELECT * 
+                FROM eoi 
+                WHERE email = ? 
+                AND job_ref = ? 
+                AND mobile_number = ?");
+                mysqli_stmt_bind_param($check, "sss", $email_address, $job_ref, $mobile_number);
+                mysqli_stmt_execute($check);
+                $check_result = mysqli_stmt_get_result($check);
 
+                if (mysqli_num_rows($check_result) == 0) {
                 if (mysqli_stmt_execute($stmt)) {
+
                         $eoiNumber = mysqli_insert_id($conn);
                         echo "<p><strong>Thank you $first_name $last_name for your application to Linkly. We will contact you at your phone number ($mobile_number) momentarily.</strong></p>";
                         echo "<p>Your EOI Number is: <strong>$eoiNumber</strong></p>";
@@ -286,10 +296,13 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
                                 <br>
                                 <strong>Previous Experience:</strong> $exp
                                 </p>";
-                } else {
-                        echo "<p>Error submitting application. Please try submitting the <a href='apply.php'>form</a> again.</p>";
+                } 
+                else {
+                       echo "<p><strong>Sorry, there was an error processing your application. Please try again later.</strong></p>";
+                }}
+                else {
+                        echo "<p><strong>It seems you have already applied for this position with the same email and mobile number. Please wait for our response regarding your application.</strong></p>";
                 }
-
 
 
                 ?>
