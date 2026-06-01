@@ -40,7 +40,7 @@
             <img id="photo" style="width: 300px; padding: 10px;"
                 src="https://images.pexels.com/photos/5882532/pexels-photo-5882532.jpeg"
                 alt="Image on two people working at a laptop">
-            <table>
+            <table id="authors">
                 <tr>
                     <th><em>Authors</em></th>
                     <th><em>Project</em></th>
