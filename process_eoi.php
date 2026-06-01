@@ -71,7 +71,7 @@
     }
     else
     {
-        $first_name = test_input($_POST["gname"]);
+        $first_name = $_POST["gname"];
         // check if name only contains letters and whitespace
         if (!preg_match("/^[a-zA-Z ]*$/",$first_name))
         {
