@@ -48,19 +48,19 @@
         </ul>
 
         <section>
-            
+
             <h3>Team Members</h3>
             <figure>
                 <img id="group" src="images/Groupic.png" alt="Group Photo of Ciara, Paul and Kai">
                 <figcaption> Group photo with Ciara Smith, Paul Harrington, Kai Dicker </figcaption>
             </figure>
             <?php
-                require_once 'settings.php';
-                $conn = @mysqli_connect($host, $user, $pwd, $sql_db); // connects to the database and stores it to $conn
-                $sql = "SELECT * FROM about";
+            require_once 'settings.php';
+            $conn = @mysqli_connect($host, $user, $pwd, $sql_db); // connects to the database and stores it to $conn
+            $sql = "SELECT * FROM about";
 
-                $data = mysqli_query($conn, $sql);
-                if (mysqli_num_rows($data) > 0) {
+            $data = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($data) > 0) {
                 while ($row = mysqli_fetch_assoc($data)) { // member id, member name, student id and contributions
                     echo "<dl id='horizontal' style='display: contents;'>";
                     echo "<dt><strong>{$row['member_id']}. {$row['member_name']}</strong></dt>";
@@ -68,14 +68,14 @@
                     echo "<dt style='margin-bottom: 15px;'>{$row['contributions']}</dt>";
                     echo "</dl>";
                 }
-                }
-                ?>
+            }
+            ?>
 
-                
+
         </section>
 
         <h2>Fun Facts</h2>
-        
+
         <table id="funfact">
             <tr>
                 <th><em>Name</em></th>
@@ -85,18 +85,18 @@
                 <th><em>Hometown</em></th>
             </tr>
             <?php
-                $data = mysqli_query($conn, $sql);
-                if (mysqli_num_rows($data) > 0) {
+            $data = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($data) > 0) {
                 while ($row = mysqli_fetch_assoc($data)) { // data for member name, dream job, quote, snack, hometown
-                echo "<tr>";
-                echo "<td>{$row['member_name']}</td>";
-                echo "<td>{$row['dream_job']}</td>";
-                echo "<td>{$row['quote']}</td>";
-                echo "<td>{$row['snack']}</td>";
-                echo "<td>{$row['hometown']}</td>";
-                echo "</tr>";
+                    echo "<tr>";
+                    echo "<td>{$row['member_name']}</td>";
+                    echo "<td>{$row['dream_job']}</td>";
+                    echo "<td>{$row['quote']}</td>";
+                    echo "<td>{$row['snack']}</td>";
+                    echo "<td>{$row['hometown']}</td>";
+                    echo "</tr>";
                 }
-                }
+            }
             ?>
         </table>
     </article>
