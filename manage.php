@@ -25,11 +25,11 @@
                 //Deleting EOIs for a job reference
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete_by_jobref') {
                         $job_ref = mysqli_real_escape_string($conn, trim($_POST['job_ref'] ?? ''));
-                        if (job_ref !== '') {
+                        if ($job_ref !== '') {
                                 $sql = "DELETE FROM eoi WHERE job_ref = '$job_ref'";
                                 if (mysqli_query($conn, $sql)) {
                                         $affected = mysqli_affected_rows($conn);
-                                        echo "<p>Deleted: " . $affected . " EOI(s) with job reference (strong)" . htmlspecialcharacters($job_ref) . "</strong>.</p>";
+                                        echo "<p>Deleted: " . $affected . " EOI(s) with job reference (strong)" . htmlspecialchars($job_ref) . "</strong>.</p>";
                                 } else {
                                         echo "<p>Please provide a job reference to be deleted.</p>";
                                 }
@@ -39,13 +39,13 @@
 
                 <?php
                 //Changing a single EOI status
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'] && $_POST['action'] === 'change_status')) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'change_status') {
                      $eoi_id = (int)($_POST['eoi_id'] ?? 0);
                      $new_status = trim($_POST['new_status'] ?? '');
                      if ($eoi_id > 0 && in_array($new_status, $allowed_status)) {
                         $sql = "UPDATE eoi SET status = '$new_status' WHERE eoi_id = $eoi_id";
                         if (mysqli_query($conn, $sql)) {
-                                echo "<p>EOI #" . $eoi_id . " status updated to <strong>" . htmlspecialcharacters($new_status) . "</strong>.</p>";
+                                echo "<p>EOI #" . $eoi_id . " status updated to <strong>" . htmlspecialchars($new_status) . "</strong>.</p>";
                         } else {
                                 echo "<p>Update failed: " . mysqli_error($conn) . "</p>";
                         }
@@ -63,21 +63,21 @@
                 $sort_field = $_GET['sort_field'] ?? 'eoi_id';
                 $sort_order = strtoupper($_GET['sort_order'] ?? 'ASC');
 
-                if(!in_array($sort_field, $allowed_sort)) sort_field = 'eoi_id';
-                if(!in_array($sort_field, $allowed_sort)) sort_order = 'ASC';
+                if(!in_array($sort_field, $allowed_sort)) $sort_field = 'eoi_id';
+                if(!in_array($sort_field, $allowed_sort)) $sort_order = 'ASC';
 
                 $where = array();
-                if (filter_jobref !== '') {
+                if ($filter_jobref !== '') {
                         $safe_jobref = mysqli_real_escape_string($conn, $filter_jobref);
                         $where[] = "job_ref = 'safe_jobref'";
                 }
-                if (filter_fname !== '') {
+                if ($filter_fname !== '') {
                         $safe_fname = mysqli_real_escape_string($conn, $filter_fname);
-                        $where[] = "first_name LIKE '%$safe_fname%'";
+                        $where[] = "first_name LIKE '$safe_fname'";
                 }
-                if (filter_lname !== '') {
+                if ($filter_lname !== '') {
                         $safe_lname = mysqli_real_escape_string($conn, $filter_lname);
-                        $where[] = "last_name LIKE '%$safe_lname%'";
+                        $where[] = "last_name LIKE '$safe_lname'";
                 }
 
                 $where_sql = count($where) ? 'WHERE ' . implode(' AND ', $where) : '';
@@ -98,7 +98,7 @@
 
 			<label for="sort_field">Sort By:</label>
 			<select id="sort_field" name="sort_field">
-				<?php foreach ($allowed_sort as $f): ?>
+				<?php foreach ($allowed_sort as $f); ?>
 					<option value="<?php echo $f; ?>" <?php if ($sort_field === $f) echo "selected"; ?>>
 						<?php echo ucfirst(str_replace('_', ' ', $f)); ?>
 					</option>
