@@ -47,11 +47,11 @@ $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
             ?>
 
             <form method="POST" id="user_form" action="login.php">
-                <label for="username">Username:</label>
-                <input type="text" class="forminp" name="username" required><br>
+                <label name="username" for="username">Username:</label>
+                <input type="text" class="forminp" name="username" id="username" required><br>
 
-                <label for="password">Password:</label>
-                <input type="password" class="forminp" name="password" required><br>
+                <label name="password" for="password">Password:</label>
+                <input type="password" class="forminp" name="password" id="password" required><br>
 
                 <button type="submit">Login</button>
             </form>

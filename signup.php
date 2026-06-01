@@ -35,17 +35,17 @@ if (empty($_SESSION['token'])) {
         <form method="post" id="user_form" action="">
             <h2>Create your account</h2>
 
-            <label for="username">Username: </label>
-            <input type="text" name="username" placeholder="Enter Username" class="forminp" required><br>
+            <label name="username" for="username">Username: </label>
+            <input type="text" name="username" id="username" placeholder="Enter Username"  class="forminp" required><br>
 
-            <label for="email">Email: </label>
-            <input type="email" name="email" placeholder="Enter Email" class="forminp" required><br>
+            <label name="email" for="email">Email: </label>
+            <input type="email" name="email" id="email" placeholder="Enter Email" class="forminp" required><br>
 
-            <label for="password">Password: </label>
-            <input type="password" name="password" placeholder="Enter Password" class="forminp" required><br>
+            <label name="password" for="password">Password: </label>
+            <input type="password" name="password" id="password" placeholder="Enter Password" class="forminp" required><br>
 
-            <label for="confirm">Confirm Password: </label>
-            <input type="password" name="confirm" placeholder="Confirm Password" class="forminp" required><br>
+            <label name="confirm" for="confirm">Confirm Password: </label>
+            <input type="password" name="confirm" id="confirm" placeholder="Confirm Password" class="forminp" required><br>
 
             <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
             <input type="submit" value="Submit">
