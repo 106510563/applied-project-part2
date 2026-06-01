@@ -6,6 +6,13 @@
     $_SESSION['token'] = bin2hex(random_bytes(32)); // Generate CSRF token
     }
     ?>
+
+    <!-- SOURCES: 
+     https://github.com/daveh/php-signup-login/blob/main/process-signup.php 
+     https://gist.github.com/ryansechrest/8138375
+     https://www.php.net/manual/en/function.preg-match.php
+     -->
+    
     <!DOCTYPE html>
     <html lang="en">
 

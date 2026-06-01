@@ -39,7 +39,7 @@
 
                 <?php
                 //Changing a single EOI status
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'] && $_POST['action'] === 'change_status')) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'change_status') {
                      $eoi_id = (int)($_POST['eoi_id'] ?? 0);
                      $new_status = trim($_POST['new_status'] ?? '');
                      if ($eoi_id > 0 && in_array($new_status, $allowed_status)) {
