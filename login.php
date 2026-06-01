@@ -41,6 +41,7 @@ $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
             } else {
                 echo "❌ Incorrect username or password.";
             }
+        }
         ?>
 
             <form method="POST" id="user_form" action="login.php">
