@@ -6,7 +6,7 @@
         <li><p><a href="about.php" class="menu">About</a></p=></li>
         <li>
             <search>
-                <form action="/search-results" method="GET">
+                <form action="search.php" method="GET">
                     <label for="searchBar">Search</label>
                     <input type="search" id="searchBar" name="q" onkeyup="requiresJavaScriptLol()" placeholder="Search jobs...">
                     <button type="submit"><a href="search.php">Search</a></button>
