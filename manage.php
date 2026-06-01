@@ -16,6 +16,7 @@
                 ?>
                 
                 <?php
+                        $conn = mysqli_connect('localhost', 'admin', 'admin', 'linkly_db');
                         $allowed_sort = array('eoi_id', 'first_name', 'pref_name', 'last_name', 'dob', 'gender', 'address', 'suburb', 'state', 'postcode', 'job_title', 'job_ref', 'mobile_number', 'home_number', 'email', 'skills', 'otherskills', 'exp', 'status');
                         $allowed_order = array('ASC', 'DESC');
                         $allowed_status = array('New', 'Current', 'Final');
@@ -64,7 +65,7 @@
                 $sort_order = strtoupper($_GET['sort_order'] ?? 'ASC');
 
                 if(!in_array($sort_field, $allowed_sort)) $sort_field = 'eoi_id';
-                if(!in_array($sort_order, $allowed_sort)) $sort_order = 'ASC';
+                if(!in_array($sort_order, $allowed_order)) $sort_order = 'ASC';
 
                 $where = array();
                 if ($filter_jobref !== '') {
@@ -125,39 +126,37 @@
 
                 <?php
                 //the results table
-                        if (isset($_GET['eoi'])) {
-                                $eoi = mysqli_real_escape_string($conn, $_GET['eoi']);
-                                $sql = "SELECT * FROM eoi";
-                                $result = mysqli_query($conn, $sql);
+                        $eoi = mysqli_real_escape_string($conn, $_GET['eoi']);
+                        $sql = "SELECT * FROM eoi";
+                        $result = mysqli_query($conn, $sql);
 
-                                if (mysqli_num_rows($result) > 0){
-                                        echo "<table border='1' cellpadding='5'>";
-                                        echo "<tr><th>EOI ID</th><th>First Name</th><th>Preferred Name</th><th>Last Name</th><th>DOB</th><th>Gender</th><th>Street Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Job Title</th><th>Job Reference</th><th>Mobile Number</th><th>Home Number</th><th>Email</th><th>Main Skills</th><th>Other Skills</th><th>Experience</th><th>Status</th>";
-                                        while ($row = mysqli_num_rows($result)) {
-                                                echo "<tr>";
-                                                echo "<td>" . $row['eoi_id'] . "</td>";
-                                                echo "<td>" . $row['first_name'] . "</td>";
-                                                echo "<td>" . $row['pref_name'] . "</td>";
-                                                echo "<td>" . $row['last_name'] . "</td>";
-                                                echo "<td>" . $row['dob'] . "</td>";
-                                                echo "<td>" . $row['gender'] . "</td>";
-                                                echo "<td>" . $row['address'] . "</td>";
-                                                echo "<td>" . $row['suburb'] . "</td>";
-                                                echo "<td>" . $row['state'] . "</td>";
-                                                echo "<td>" . $row['postcode'] . "</td>";
-                                                echo "<td>" . $row['job_title'] . "</td>";
-                                                echo "<td>" . $row['job_ref'] . "</td>";
-                                                echo "<td>" . $row['mobile_number'] . "</td>";
-                                                echo "<td>" . $row['home_number'] . "</td>";
-                                                echo "<td>" . $row['email'] . "</td>";
-                                                echo "<td>" . $row['skills'] . "</td>";
-                                                echo "<td>" . $row['otherskills'] . "</td>";
-                                                echo "<td>" . $row['exp'] . "</td>";
-                                                echo "<td>" . $row['status'] . "</td>";
-                                                echo "</tr>"; 
-                                        }
-                                        echo "</table>";
+                        if (mysqli_num_rows($result) > 0){
+                                echo "<table border='1' cellpadding='5'>";
+                                echo "<tr><th>EOI ID</th><th>First Name</th><th>Preferred Name</th><th>Last Name</th><th>DOB</th><th>Gender</th><th>Street Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Job Title</th><th>Job Reference</th><th>Mobile Number</th><th>Home Number</th><th>Email</th><th>Main Skills</th><th>Other Skills</th><th>Experience</th><th>Status</th>";
+                                while ($row = mysqli_num_rows($result)) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row['eoi_id'] . "</td>";
+                                        echo "<td>" . $row['first_name'] . "</td>";
+                                        echo "<td>" . $row['pref_name'] . "</td>";
+                                        echo "<td>" . $row['last_name'] . "</td>";
+                                        echo "<td>" . $row['dob'] . "</td>";
+                                        echo "<td>" . $row['gender'] . "</td>";
+                                        echo "<td>" . $row['address'] . "</td>";
+                                        echo "<td>" . $row['suburb'] . "</td>";
+                                        echo "<td>" . $row['state'] . "</td>";
+                                        echo "<td>" . $row['postcode'] . "</td>";
+                                        echo "<td>" . $row['job_title'] . "</td>";
+                                        echo "<td>" . $row['job_ref'] . "</td>";
+                                        echo "<td>" . $row['mobile_number'] . "</td>";
+                                        echo "<td>" . $row['home_number'] . "</td>";
+                                        echo "<td>" . $row['email'] . "</td>";
+                                        echo "<td>" . $row['skills'] . "</td>";
+                                        echo "<td>" . $row['otherskills'] . "</td>";
+                                        echo "<td>" . $row['exp'] . "</td>";
+                                        echo "<td>" . $row['status'] . "</td>";
+                                        echo "</tr>"; 
                                 }
+                                echo "</table>";
                         }
                 ?>
 
