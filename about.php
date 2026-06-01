@@ -96,6 +96,8 @@
                     echo "<td>{$row['hometown']}</td>";
                     echo "</tr>";
                 }
+            } else {
+                echo "<p>Unable to retrieve data.</p>";
             }
             ?>
         </table>

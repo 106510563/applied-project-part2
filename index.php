@@ -38,7 +38,7 @@
         </aside>
         <aside id="left">
             <img id="photo" style="width: 300px; padding: 10px;"
-                src="https://images.pexels.com/photos/5882532/pexels-photo-5882532.jpeg"
+                src="images/indexphoto.jpeg"
                 alt="Image on two people working at a laptop">
             <table id="authors">
                 <tr>
@@ -50,7 +50,7 @@
                     <th>Kai Dicker</th>
                     <th rowspan="3"><a href="https://ciarasmith.atlassian.net/jira/software/projects/EDRP/summary">Jira
                             Page</a></th>
-                    <th rowspan="3"><a href="https://github.com/106510563/106510563.github.io">ASM1</a></th>
+                    <th rowspan="3"><a href="https://github.com/106510563/applied-project-part2">ASM1</a></th>
                 </tr>
                 <tr>
                     <th>Ciara Smith</th>
@@ -86,7 +86,8 @@
                         selling off our platform, press 3.</ul>
                     <li><strong>How do I sell a product on Linkly?</strong></li>
                     <ul>To become an official Linkly seller, follow our guide over on our Facebook, or watch
-                        <em>this</em>Youtube video with a more in-depth, visual explanation.</ul>
+                        <em>this</em>Youtube video with a more in-depth, visual explanation.
+                    </ul>
                     <li><strong>Can I get a refund?</strong></li>
                     <ul>Unfortunately, Linkly can not 100% guarantee a refund without approval from the seller you are
                         buying from, please contact our Customer Support number at +61 XXX-XXX-XXX option 2 for more

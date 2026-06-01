@@ -16,22 +16,22 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Apply job applications">
-    <meta name="keywords" content="applications, job, apply, ecommerce">
-    <meta name="author" content="Ciara Smith">
-    <link href="styles/styles.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank you for Applying!</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Apply job applications">
+        <meta name="keywords" content="applications, job, apply, ecommerce">
+        <meta name="author" content="Ciara Smith">
+        <link href="styles/styles.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thank you for Applying!</title>
 
 </head>
 
 <body>
-    <?php include 'inc_files/header.inc'; ?>
-    <?php include 'inc_files/nav.inc'; ?>
-    <article>
-        <h2>Thank you for applying to Linkly!</h2>
-        <?php
+        <?php include 'inc_files/header.inc'; ?>
+        <?php include 'inc_files/nav.inc'; ?>
+        <article>
+                <h2>Thank you for applying to Linkly!</h2>
+                <?php
 
                 function sanitise_input($data)
                 {
@@ -252,24 +252,26 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
                         $otherskills,
                         $exp
                 );
-                $check = mysqli_prepare($conn, 
-                "SELECT * 
+                $check = mysqli_prepare(
+                        $conn,
+                        "SELECT * 
                 FROM eoi 
                 WHERE email = ? 
                 AND job_ref = ? 
-                AND mobile_number = ?");
+                AND mobile_number = ?"
+                );
                 mysqli_stmt_bind_param($check, "sss", $email_address, $job_ref, $mobile_number);
                 mysqli_stmt_execute($check);
                 $check_result = mysqli_stmt_get_result($check);
 
                 if (mysqli_num_rows($check_result) == 0) {
-                if (mysqli_stmt_execute($stmt)) {
+                        if (mysqli_stmt_execute($stmt)) {
 
-                        $eoiNumber = mysqli_insert_id($conn);
-                        echo "<p><strong>Thank you $first_name $last_name for your application to Linkly. We will contact you at your phone number ($mobile_number) momentarily.</strong></p>";
-                        echo "<p>Your EOI Number is: <strong>$eoiNumber</strong></p>";
-                        echo "<p><strong>Here are your details:</strong></p>";
-                        echo "<p>
+                                $eoiNumber = mysqli_insert_id($conn);
+                                echo "<p><strong>Thank you $first_name $last_name for your application to Linkly. We will contact you at your phone number ($mobile_number) momentarily.</strong></p>";
+                                echo "<p>Your EOI Number is: <strong>$eoiNumber</strong></p>";
+                                echo "<p><strong>Here are your details:</strong></p>";
+                                echo "<p>
                                 <strong>First (Given) Name:</strong> $first_name
                                 <br>
                                 <strong>Preferred Name (if applicable):</strong> $pref_name
@@ -296,26 +298,25 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
                                 <br>
                                 <strong>Previous Experience:</strong> $exp
                                 </p>";
-                } 
-                else {
-                       echo "<p><strong>Sorry, there was an error processing your application. Please try again later.</strong></p>";
-                }}
-                else {
+                        } else {
+                                echo "<p><strong>Sorry, there was an error processing your application. Please try again later.</strong></p>";
+                        }
+                } else {
                         echo "<p><strong>It seems you have already applied for this position with the same email and mobile number. Please wait for our response regarding your application.</strong></p>";
                 }
 
 
                 ?>
-        <p>
-            Please be patient while we process your application. We take pride in our fast response to
-            potential applicants, so expect an affirmative answer within a week, and immediate confirmation
-            of your application to both your <strong>email</strong> and <strong>mobile number</strong>.
-            </br>
-            Thank you for your patience and understanding.
-        </p>
+                <p>
+                        Please be patient while we process your application. We take pride in our fast response to
+                        potential applicants, so expect an affirmative answer within a week, and immediate confirmation
+                        of your application to both your <strong>email</strong> and <strong>mobile number</strong>.
+                        </br>
+                        Thank you for your patience and understanding.
+                </p>
 
-    </article>
-    <?php include 'inc_files/footer.inc'; ?>
+        </article>
+        <?php include 'inc_files/footer.inc'; ?>
 </body>
 
 </html>
