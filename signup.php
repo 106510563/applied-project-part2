@@ -35,10 +35,10 @@
                 <h2>Create your account</h2>
 
                 <label for="username">Username: </label>
-                <input type="text" name="username" placeholder="Enter Username" class="forminp" required><br>
+                <input type="text" name="username" placeholder="Enter Username" class="forminp" value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>" required><br>
 
                 <label for="email">Email: </label>
-                <input type="email" name="email" placeholder="Enter Email" class="forminp" required><br>
+                <input type="email" name="email" placeholder="Enter Email" class="forminp" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required><br>
 
                 <label for="password">Password: </label>
                 <input type="password" name="password" placeholder="Enter Password" class="forminp" required><br>
@@ -52,6 +52,16 @@
 
             <?php
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+function sanitise_input($data)
+{
+    if (is_array($data)) {
+            return "";
+    }
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $error = "";
@@ -62,10 +72,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $_SESSION['token'] = bin2hex(random_bytes(32));
 
-        $username = trim($_POST["username"]);
-        $email    = trim($_POST["email"]);
-        $password = trim($_POST["password"]);
-        $confirm  = trim($_POST["confirm"]);
+        $username = sanitise_input($_POST["username"]);
+        $email    = sanitise_input($_POST["email"]);
+        $password = sanitise_input($_POST["password"]);
+        $confirm  = sanitise_input($_POST["confirm"]);
 
         if (empty($username) || empty($email) || empty($password) || empty($confirm)) {
             $error = "❌ All fields are required.";
