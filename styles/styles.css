@@ -199,13 +199,9 @@ th {
 /*about.php CSS*/
 
 #horizontal {
-  display: grid;
+  display: contents;
   grid-template-columns: auto auto auto;
   text-align: center;
-}
-
-#horizontal dt {
-  font-weight: bold;
 }
 
 #horizontal dd {

@@ -57,39 +57,25 @@
             <?php
                 require_once 'settings.php';
                 $conn = @mysqli_connect($host, $user, $pwd, $sql_db); // connects to the database and stores it to $conn
-                $sql = "SELECT * FROM about"
+                $sql = "SELECT * FROM about";
 
-                $data = mysqli_query($conn, $sql); 
+                $data = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($data) > 0) {
-                while ($row = mysqli_fetch_assoc($data)) {
-                    echo "<dl id='horizontal'>"
-                    echo "<dt>{$row['member_name']}</dt>";
-                    echo "<dt>{$row['member_id']}</dt>";
-                    echo "<dt>{$row['member_contrubutions']}</dt>";
+                while ($row = mysqli_fetch_assoc($data)) { // member id, member name, student id and contributions
+                    echo "<dl id='horizontal' style='display: contents;'>";
+                    echo "<dt><strong>{$row['member_id']}. {$row['member_name']}</strong></dt>";
+                    echo "<dt>{$row['student_id']}</dt>";
+                    echo "<dt style='margin-bottom: 15px;'>{$row['contributions']}</dt>";
+                    echo "</dl>";
                 }
                 }
-            
-                echo "<dl id='horizontal'>"
-                echo "<dt>"Ciara Smith"</dt>"
-                echo <dt>Paul Harrington</dt>
-                echo <dt>Kai Dicker</dt>
+                ?>
 
-                echo <dd>106510563</dd>
-                echo <dd>106578516</dd>
-                echo <dd>106503741</dd>
-
-                echo <dd>Leader</dd>
-                echo <dd>Proof Reader</dd>
-                echo <dd>HTML Architect</dd>
-
-                echo <dd>Built CSS structure</dd>
-                echo <dd>Built about page</dd>
-                echo <dd>Built index and job pages</dd>
-                echo </dl>
-            ?>
+                
         </section>
 
         <h2>Fun Facts</h2>
+        
         <table id="funfact">
             <tr>
                 <th><em>Name</em></th>
@@ -98,33 +84,20 @@
                 <th><em>Favorite Snack</em></th>
                 <th><em>Hometown</em></th>
             </tr>
-
-            <tr>
-                <td>Ciara Smith</td>
-                <td>Prime Minister</td>
-                <td>"Krigets högsta konst är att kuva fienden utan att strida" <br>
-                    (The supreme art of war is to subdue the enemy without fighting.)</td>
-                <td>Cookies</td>
-                <td>Yarrawonga</td>
-            </tr>
-
-            <tr>
-                <td>Kai Dicker</td>
-                <td>Astronaut</td>
-                <td>"Όταν πας σπίτι, μπορείς να πεις στη μητέρα σου ότι γνώρισες έναν πραγματικό στρατιώτη." <br>
-                    (When you go home, you can tell your mother you met a real soldier.)</td>
-                <td>Monster Energy</td>
-                <td>Melbourne</td>
-            </tr>
-
-            <tr>
-                <td>Paul Harrington</td>
-                <td>Game Developer</td>
-                <td>"一滴水會返一波泉" <br>
-                    (A drop of water can create a spring.)</td>
-                <td>Chocolate</td>
-                <td>Changhua City, Taiwan</td>
-            </tr>
+            <?php
+                $data = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($data) > 0) {
+                while ($row = mysqli_fetch_assoc($data)) { // data for member name, dream job, quote, snack, hometown
+                echo "<tr>";
+                echo "<td>{$row['member_name']}</td>";
+                echo "<td>{$row['dream_job']}</td>";
+                echo "<td>{$row['quote']}</td>";
+                echo "<td>{$row['snack']}</td>";
+                echo "<td>{$row['hometown']}</td>";
+                echo "</tr>";
+                }
+                }
+            ?>
         </table>
     </article>
     <?php include 'inc_files/footer.inc'; ?>
