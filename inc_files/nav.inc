@@ -1,9 +1,9 @@
 <nav>
     <ul>
-        <li><p class="menu"><a href="index.php">Home</a></p></li>
-        <li><p class="menu"><a href="jobs.php">Jobs</a></p></li>
-        <li><p class="menu"><a href="apply.php">Apply</a></p></li>
-        <li><p class="menu"><a href="about.php">About</a></p></li>
+        <li><p><a href="index.php" class="menu">Home</a></p></li>
+        <li><p><a href="jobs.php" class="menu">Jobs</a></p=></li>
+        <li><p><a href="apply.php" class="menu">Apply</a></p=></li>
+        <li><p><a href="about.php" class="menu">About</a></p=></li>
         <li>
             <search>
                 <form action="/search-results" method="GET">
@@ -13,8 +13,8 @@
                 </form>
             </search>
         </li>
-        <li><p class="menu"><a href="login.php">Login</a></p></li>
-        <li><p class="menu"><a href="signup.php">Signup</a></p></li>
+        <li><p><a href="login.php" class="menu">Login</a></p></li>
+        <li><p><a href="signup.php" class="menu">Signup</a></p=></li>
         
     </ul>
 </nav>
