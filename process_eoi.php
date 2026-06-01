@@ -154,6 +154,58 @@ if (!empty($errors)) {
 }
 // Database insert code goes here...
 
+                        if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+    if (empty($_POST["gname"]))
+    {
+        $first_nameErr = "Name is required";
+    }
+    else
+    {
+        $first_name = $_POST["gname"];
+        // check if name only contains letters and whitespace
+        if (!preg_match("/^[a-zA-Z ]*$/",$first_name))
+        {
+            $first_nameErr = "Only letters and white space allowed";
+        }
+    }
+}
+
+                        // validating form inputs (server side validation)
+                        $errors = [];
+                        if (empty($data['email'])) {
+                                $errors['email'] = "Email is required.";
+                        } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                                $errors['email'] = "Invalid email format.";
+                        }
+                        if (empty($last_name))
+                                $errors[] = "Last name is required.";
+                        if (empty($dob))
+                                $errors[] = "Date of Birth is required.";
+                        if (empty($gender))
+                                $errors[] = "Gender is required.";
+                        if (empty($address))
+                                $errors[] = "Address is required.";
+                        if (empty($suburb))
+                                $errors[] = "Suburb is required.";
+                        if (empty($state))
+                                $errors[] = "State is required.";
+                        if (empty($postcode))
+                                $errors[] = "Postcode is required.";
+                        if (empty($job_ref))
+                                $errors[] = "Job reference is required.";
+                        if (empty($mobile_number))
+                                $errors[] = "Mobile number is required.";
+                        if (empty($email_address))
+                                $errors[] = "Email address is required.";
+                        if (empty($exp))
+                                $errors[] = "'Previous experience' category is required.";
+                        if (!filter_var($email_address, FILTER_VALIDATE_EMAIL))
+                                $errors[] = "Invalid email address.";
+                        if (!preg_match("/^[0-9]{8,15}$/", $mobile_number))
+                                $errors[] = "Invalid mobile number.";
+                        if (!preg_match("/^[A-Za-z0-9]{5}$/", $job_ref))
+                                $errors[] = "Invalid job reference.";
 
                         // create table if eoi table does not exist
                         $createTable = "CREATE TABLE IF NOT EXISTS eoi(
