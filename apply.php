@@ -18,7 +18,8 @@
     <p class="description">Fill out the form below to apply for a job position. <br>
         For more information on the specific job positions, please ensure to read the <a href="jobs.html">Jobs</a> page.
         <br>
-        Fields marked with * are required.</p>
+        Fields marked with * are required.
+    </p>
 
     <form action="process_eoi.php" method="POST" novalidate="novalidate">
         <fieldset>
@@ -40,12 +41,12 @@
 
             <p>Gender</p>
             <div id="gender">
-                <input type="radio" name="gender" value="Male">
+                <input type="radio" id="male" name="gender" value="Male">
                 <label for="male">Male</label><br>
-                <input type="radio" name="gender" value="Female">
-                <label for="female">Female</label> <br>
-                <input type="radio" name="gender" value="Other">
-                <label for="unspec">Other/Unspecified</label>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="unspec" name="gender" value="Unspecified">
+                <label for="unspec">Other/Unspecified</label><br>
             </div>
 
             <p><label for="street">Street Address*</label>
@@ -97,36 +98,47 @@
                 <input type="email" name="email" id="email" maxlength="30" size="20">
             </p>
             <?php if (isset($errors['email'])): ?>
-            <div class="error"><?php echo $errors['email']; ?></div>
+                <div class="error"><?php echo $errors['email']; ?></div>
             <?php endif; ?>
         </fieldset>
 
         <fieldset>
             <legend><strong>Skills</strong></legend>
-            <input type="checkbox" id="adapt" name="skills[]" value="adapt">
-            <label for="Adaptibility">Adaptibility</label>
-            <br>
-            <input type="checkbox" id="create" name="skills[]" value="create">
-            <label for="Creative">Creative</label>
-            <br>
-            <input type="checkbox" id="comm" name="skills[]" value="comm">
-            <label for="Communication">Communication</label>
-            <br>
-            <input type="checkbox" id="prob" name="skills[]" value="prob">
-            <label for="Problem Solving">Problem Solving</label>
-            <br>
-            <input type="checkbox" id="lead" name="skills[]" value="lead">
-            <label for="Leadership">Leadership</label>
-            <br>
-            <input type="checkbox" id="timeman" name="skills[]" value="timeman">
-            <label for="Time Management">Time Management</label>
-            <br>
-            <input type="checkbox" id="other" name="skills[]" value="other">
-            <label for="Other">Other (please specify below)</label>
 
-            <p><label for="otherskills">Other Skills</label></p>
-            <p><textarea id="otherskills" name="otherskills" rows="5" cols="50"
-                    placeholder="List other skills if necessary..."></textarea></p>
+            <input type="checkbox" id="adapt" name="skills[]" value="Adaptability">
+            <label for="adapt">Adaptability</label>
+            <br>
+
+            <input type="checkbox" id="create" name="skills[]" value="Creative">
+            <label for="create">Creative</label>
+            <br>
+
+            <input type="checkbox" id="comm" name="skills[]" value="Communication">
+            <label for="comm">Communication</label>
+            <br>
+
+            <input type="checkbox" id="prob" name="skills[]" value="Problem Solving">
+            <label for="prob">Problem Solving</label>
+            <br>
+
+            <input type="checkbox" id="lead" name="skills[]" value="Leadership">
+            <label for="lead">Leadership</label>
+            <br>
+
+            <input type="checkbox" id="timeman" name="skills[]" value="Time Management">
+            <label for="timeman">Time Management</label>
+            <br>
+
+            <input type="checkbox" id="other" name="skills[]" value="Other">
+            <label for="other">Other (please specify below)</label>
+
+            <p>
+                <label for="otherskills">Other Skills</label>
+            </p>
+            <p>
+                <textarea id="otherskills" name="otherskills" rows="5" cols="50"
+                    placeholder="List other skills if necessary..."></textarea>
+            </p>
         </fieldset>
 
         <fieldset>
