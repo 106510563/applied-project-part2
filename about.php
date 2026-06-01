@@ -48,29 +48,45 @@
         </ul>
 
         <section>
+            
             <h3>Team Members</h3>
             <figure>
                 <img id="group" src="images/Groupic.png" alt="Group Photo of Ciara, Paul and Kai">
                 <figcaption> Group photo with Ciara Smith, Paul Harrington, Kai Dicker </figcaption>
             </figure>
+            <?php
+                require_once 'settings.php';
+                $conn = @mysqli_connect($host, $user, $pwd, $sql_db); // connects to the database and stores it to $conn
+                $sql = "SELECT * FROM about"
 
-            <dl id="horizontal">
-                <dt>Ciara Smith</dt>
-                <dt>Paul Harrington</dt>
-                <dt>Kai Dicker</dt>
+                $data = mysqli_query($conn, $sql); 
+                if (mysqli_num_rows($data) > 0) {
+                while ($row = mysqli_fetch_assoc($data)) {
+                    echo "<dl id='horizontal'>"
+                    echo "<dt>{$row['member_name']}</dt>";
+                    echo "<dt>{$row['member_id']}</dt>";
+                    echo "<dt>{$row['member_contrubutions']}</dt>";
+                }
+                }
+            
+                echo "<dl id='horizontal'>"
+                echo "<dt>"Ciara Smith"</dt>"
+                echo <dt>Paul Harrington</dt>
+                echo <dt>Kai Dicker</dt>
 
-                <dd>106510563</dd>
-                <dd>106578516</dd>
-                <dd>106503741</dd>
+                echo <dd>106510563</dd>
+                echo <dd>106578516</dd>
+                echo <dd>106503741</dd>
 
-                <dd>Leader</dd>
-                <dd>Proof Reader</dd>
-                <dd>HTML Architect</dd>
+                echo <dd>Leader</dd>
+                echo <dd>Proof Reader</dd>
+                echo <dd>HTML Architect</dd>
 
-                <dd>Built CSS structure</dd>
-                <dd>Built about page</dd>
-                <dd>Built index and job pages</dd>
-            </dl>
+                echo <dd>Built CSS structure</dd>
+                echo <dd>Built about page</dd>
+                echo <dd>Built index and job pages</dd>
+                echo </dl>
+            ?>
         </section>
 
         <h2>Fun Facts</h2>
