@@ -38,7 +38,7 @@
         </aside>
         <aside id="left">
             <img id="photo" style="width: 300px; padding: 10px;"
-                src="https://images.pexels.com/photos/5882532/pexels-photo-5882532.jpeg"
+                src="images/indexphoto.jpeg"
                 alt="Image on two people working at a laptop">
             <table id="authors">
                 <tr>
@@ -50,7 +50,7 @@
                     <th>Kai Dicker</th>
                     <th rowspan="3"><a href="https://ciarasmith.atlassian.net/jira/software/projects/EDRP/summary">Jira
                             Page</a></th>
-                    <th rowspan="3"><a href="https://github.com/106510563/106510563.github.io">ASM1</a></th>
+                    <th rowspan="3"><a href="https://github.com/106510563/applied-project-part2">ASM1</a></th>
                 </tr>
                 <tr>
                     <th>Ciara Smith</th>

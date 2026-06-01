@@ -94,7 +94,7 @@
         <form method="GET" action="" style="display: grid;width: 360px;margin: auto;">
                 <label for="filter_jobref">Job Reference:</label>
                 <input type="text" id="filter_jobref" name="filter_jobref"
-                        value="<?php echo htmlspecialchars($filter_jobref); ?>" placeholder="e.g. DEV001">
+                        value="<?php echo htmlspecialchars($filter_jobref); ?>" placeholder="e.g. ECC01">
 
                 <label for="filter_fname">First Name:</label>
                 <input type="text" id="filter_fname" name="filter_fname"
@@ -133,7 +133,7 @@
                 style="display: grid;width: 360px;margin: auto;">
                 <input type="hidden" name="action" value="delete_by_jobref">
                 <label for="del_jobref">Delete all EOIs by Job Reference:</label>
-                <input type="text" id="del_jobref" name="job_ref" placeholder="e.g. LOL001" required>
+                <input type="text" id="del_jobref" name="job_ref" placeholder="e.g. ECC01" required>
                 <button type="submit">Delete</button>
         </form>
 
