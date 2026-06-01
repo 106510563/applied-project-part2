@@ -233,7 +233,7 @@ th {
 
 /*signup.php CSS*/
 
-#signup {
+#user_form {
   background: #ffffff;
   border: 1.5px solid #1a7abf;
   border-radius: 12px;
@@ -242,9 +242,17 @@ th {
   max-width: 420px;
   margin: auto;
   display: block;
+  margin-top: 13px;
+  margin-bottom: 13px;
 }
 
-#signup label {
+#user_form h2 {
+  text-align: center;
+  color: #185fa5;
+  margin-bottom: 20px;
+}
+
+#user_form label {
   display: block;
   font-size: 14px;
   color: #185fa5;
@@ -252,7 +260,7 @@ th {
   margin-bottom: 4px;
 }
 
-#signup .forminp {
+#user_form .forminp {
   width: 95%;
   padding: 10px;
   margin-bottom: 10px;
@@ -260,7 +268,7 @@ th {
   border-radius: 5px;
 } 
 
-#signup input[type="submit"]:hover {
+#user_form input[type="submit"]:hover {
     background-color: #0056b3;
 }
 .message {

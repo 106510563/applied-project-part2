@@ -20,8 +20,9 @@
   <body>
     <?php include 'inc_files/header.inc'; ?>
     <?php include 'inc_files/nav.inc'; ?>
-
-        <form method="post" id="signup" action="">
+    <article>
+        <form method="post" id="user_form" action="">
+          <h2>Sign Up to Linkly</h2>
 
           <label for="username">Username: </label>
           <input type="text" name="username" placeholder="Enter Username" class="forminp" required><br>
@@ -97,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<p class='message'>{$error}</p>";
     }
 }?>
-
+    </article>
     <?php include 'inc_files/footer.inc'; ?>
   </body>
   </html>    
