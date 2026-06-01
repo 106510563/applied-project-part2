@@ -15,53 +15,53 @@ description: [linkly CSS stylesheet]
 /* general CSS */
 
 body {
-    width: 810px;
-    max-width: 100%;
-    margin: 0 auto 10px;
-    background: whitesmoke;
+  width: 810px;
+  max-width: 100%;
+  margin: 0 auto 10px;
+  background: whitesmoke;
 }
 
-* { 
+* {
   font-family: calibri, sans-serif;
-} 
+}
 
 .image {
-    margin-left: 232px;
-    margin-top: 23px; /* ensuring the image is sitting in place next to the header */
-    width: 140px;
-} 
+  margin-left: 232px;
+  margin-top: 23px; /* ensuring the image is sitting in place next to the header */
+  width: 140px;
+}
 
 a {
   text-decoration: none;
-  color: #0E0C59;
+  color: #0e0c59;
 }
 
 /* Header*/
-header h1{
-  color: #0E0C59;
-  text-shadow: 1px 1px #37A5DD;
+header h1 {
+  color: #0e0c59;
+  text-shadow: 1px 1px #37a5dd;
   font-size: 50px;
   margin-top: -92px;
   margin-left: 86px;
   text-align: center;
   font-family: serif;
 }
-header h2{
-  color: #0E0C59; 
+header h2 {
+  color: #0e0c59;
   text-align: center;
   font-size: 18px;
-  margin-top: -30px; 
+  margin-top: -30px;
   margin-left: 125px;
   font-family: serif;
 }
 
 /* Navigation / Menu */
 
-nav ul { 
-    list-style: none;
-    text-align: center;
-    padding-left: 0px;
-    margin-top: -16px;
+nav ul {
+  list-style: none;
+  text-align: center;
+  padding-left: 0px;
+  margin-top: -16px;
 }
 
 nav li {
@@ -69,32 +69,31 @@ nav li {
 }
 
 nav a {
-  background: #37A5DD;
+  background: #37a5dd;
   padding: 1px 10px;
   margin: 0 5px;
   text-decoration: none;
   border: 1px solid black;
   box-shadow: 2px 2px black;
-  color: #0E0C59;
+  color: #0e0c59;
   font-size: 16px;
 }
 
 nav a:hover {
   font-size: 110%;
-  background: #1C8EC8;
+  background: #1c8ec8;
   transition: 0.5s;
 }
 
-
 search label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 button {
@@ -103,11 +102,11 @@ button {
 }
 
 .description {
-    padding: 10px;
-    background: lightblue;
+  padding: 10px;
+  background: lightblue;
 }
 
-li{
+li {
   display: list-item;
 }
 /* Form */
@@ -120,7 +119,7 @@ fieldset {
 }
 
 legend {
-  color: #0E0C59;
+  color: #0e0c59;
   background: white;
   border: solid black 1px;
   padding: 1px 10px 1px 10px;
@@ -143,21 +142,17 @@ input {
 footer a {
   margin: 0 3px 0 3px;
   text-decoration: none;
-  color: #0E0C59;
+  color: #0e0c59;
 }
-
 
 footer ul {
   text-align: right;
   margin: -20px 0;
 }
 
-footer li{
+footer li {
   display: inline-block;
 }
-
-
-
 
 /* index.php CSS */
 
@@ -166,7 +161,11 @@ footer li{
   margin-left: 25px;
 }
 
-body > nav:nth-child(5) > ul:nth-child(2) > li:nth-child(6) > label:nth-child(1) {
+body
+  > nav:nth-child(5)
+  > ul:nth-child(2)
+  > li:nth-child(6)
+  > label:nth-child(1) {
   color: whitesmoke;
 }
 
@@ -185,7 +184,10 @@ table {
   margin-top: 25px;
   margin-bottom: 25px;
 }
-table, th, td, tr {
+table,
+th,
+td,
+tr {
   border: 1px solid black;
   background: white;
 }
@@ -195,8 +197,6 @@ th {
 }
 
 /*about.php CSS*/
-
-
 
 #horizontal {
   display: grid;
@@ -213,22 +213,22 @@ th {
 }
 
 #funfact {
-  width: auto; 
+  width: auto;
 }
-#group{
-    max-width:100%;
-    height: auto;
+#group {
+  max-width: 100%;
+  height: auto;
 }
 
 /*jobs.php CSS*/
 
-.job{
-    border: 1px solid black;
-    margin: 25px;
-    width: auto;
-    padding: 0 10px 0 10px;
-    margin: 15px;
-    background-color: whitesmoke;
+.job {
+  border: 1px solid black;
+  margin: 25px;
+  width: auto;
+  padding: 0 10px 0 10px;
+  margin: 15px;
+  background-color: whitesmoke;
 }
 
 /*signup.php CSS*/
@@ -271,15 +271,15 @@ th {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-} 
+}
 
 #user_form input[type="submit"]:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 .message {
-    text-align: center;
-    font-size: 15px;
-    margin: 10px auto;
-    max-width: auto;
-    min-height: 5px;
+  text-align: center;
+  font-size: 15px;
+  margin: 10px auto;
+  max-width: auto;
+  min-height: 5px;
 }

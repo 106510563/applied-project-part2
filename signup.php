@@ -6,42 +6,44 @@
     $_SESSION['token'] = bin2hex(random_bytes(32)); // Generate CSRF token
     }
     ?>
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Signup page for Linkly">
-    <meta name="keywords" content="signup, register, create account"> 
-    <meta name="author" content="Paul Harrington">
-    <link href="styles/styles.css" rel="stylesheet">
-    <title>Signup</title>
-  </head>
-  <body>
-    <?php include 'inc_files/header.inc'; ?>
-    <?php include 'inc_files/nav.inc'; ?>
-    <article>
-        <h1 id="formhead">Sign Up to Linkly</h1>
-        <form method="post" id="user_form" action="">
-          <h2>Create your account</h2>
+    <!DOCTYPE html>
+    <html lang="en">
 
-          <label for="username">Username: </label>
-          <input type="text" name="username" placeholder="Enter Username" class="forminp" required><br>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Signup page for Linkly">
+        <meta name="keywords" content="signup, register, create account">
+        <meta name="author" content="Paul Harrington">
+        <link href="styles/styles.css" rel="stylesheet">
+        <title>Signup</title>
+    </head>
 
-          <label for="email">Email: </label>
-          <input type="email" name="email" placeholder="Enter Email" class="forminp" required><br>
+    <body>
+        <?php include 'inc_files/header.inc'; ?>
+        <?php include 'inc_files/nav.inc'; ?>
+        <article>
+            <h1 id="formhead">Sign Up to Linkly</h1>
+            <form method="post" id="user_form" action="">
+                <h2>Create your account</h2>
 
-          <label for="password">Password: </label>
-          <input type="password" name="password" placeholder="Enter Password" class="forminp" required><br>
-          
-          <label for="confirm">Confirm Password: </label>
-          <input type="password" name="confirm" placeholder="Confirm Password" class="forminp" required><br>
+                <label for="username">Username: </label>
+                <input type="text" name="username" placeholder="Enter Username" class="forminp" required><br>
 
-          <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
-          <input type="submit" value="Submit">
-        </form>
+                <label for="email">Email: </label>
+                <input type="email" name="email" placeholder="Enter Email" class="forminp" required><br>
 
-    <?php
+                <label for="password">Password: </label>
+                <input type="password" name="password" placeholder="Enter Password" class="forminp" required><br>
+
+                <label for="confirm">Confirm Password: </label>
+                <input type="password" name="confirm" placeholder="Confirm Password" class="forminp" required><br>
+
+                <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
+                <input type="submit" value="Submit">
+            </form>
+
+            <?php
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -99,8 +101,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<p class='message'>{$error}</p>";
     }
 }?>
-    </article>
-    <?php include 'inc_files/footer.inc'; ?>
-  </body>
-  </html>    
+        </article>
+        <?php include 'inc_files/footer.inc'; ?>
+    </body>
 
+    </html>
