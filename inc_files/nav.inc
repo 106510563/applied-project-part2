@@ -9,7 +9,7 @@
                 <form action="/search-results" method="GET">
                     <label for="searchBar">Search</label>
                     <input type="search" id="searchBar" name="q" onkeyup="requiresJavaScriptLol()" placeholder="Search jobs...">
-                    <button type="submit">Search</button>
+                    <button type="submit"><a href="search.php">Search</a></button>
                 </form>
             </search>
         </li>
