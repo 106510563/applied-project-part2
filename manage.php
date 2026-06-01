@@ -25,11 +25,11 @@
                 //Deleting EOIs for a job reference
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete_by_jobref') {
                         $job_ref = mysqli_real_escape_string($conn, trim($_POST['job_ref'] ?? ''));
-                        if (job_ref !== '') {
+                        if ($job_ref !== '') {
                                 $sql = "DELETE FROM eoi WHERE job_ref = '$job_ref'";
                                 if (mysqli_query($conn, $sql)) {
                                         $affected = mysqli_affected_rows($conn);
-                                        echo "<p>Deleted: " . $affected . " EOI(s) with job reference (strong)" . htmlspecialcharacters($job_ref) . "</strong>.</p>";
+                                        echo "<p>Deleted: " . $affected . " EOI(s) with job reference (strong)" . htmlspecialchars($job_ref) . "</strong>.</p>";
                                 } else {
                                         echo "<p>Please provide a job reference to be deleted.</p>";
                                 }
@@ -45,7 +45,7 @@
                      if ($eoi_id > 0 && in_array($new_status, $allowed_status)) {
                         $sql = "UPDATE eoi SET status = '$new_status' WHERE eoi_id = $eoi_id";
                         if (mysqli_query($conn, $sql)) {
-                                echo "<p>EOI #" . $eoi_id . " status updated to <strong>" . htmlspecialcharacters($new_status) . "</strong>.</p>";
+                                echo "<p>EOI #" . $eoi_id . " status updated to <strong>" . htmlspecialchars($new_status) . "</strong>.</p>";
                         } else {
                                 echo "<p>Update failed: " . mysqli_error($conn) . "</p>";
                         }
@@ -63,19 +63,19 @@
                 $sort_field = $_GET['sort_field'] ?? 'eoi_id';
                 $sort_order = strtoupper($_GET['sort_order'] ?? 'ASC');
 
-                if(!in_array($sort_field, $allowed_sort)) sort_field = 'eoi_id';
-                if(!in_array($sort_field, $allowed_sort)) sort_order = 'ASC';
+                if(!in_array($sort_field, $allowed_sort)) $sort_field = 'eoi_id';
+                if(!in_array($sort_order, $allowed_sort)) $sort_order = 'ASC';
 
                 $where = array();
-                if (filter_jobref !== '') {
+                if ($filter_jobref !== '') {
                         $safe_jobref = mysqli_real_escape_string($conn, $filter_jobref);
-                        $where[] = "job_ref = 'safe_jobref'";
+                        $where[] = "job_ref = '$safe_jobref'";
                 }
-                if (filter_fname !== '') {
+                if ($filter_fname !== '') {
                         $safe_fname = mysqli_real_escape_string($conn, $filter_fname);
                         $where[] = "first_name LIKE '%$safe_fname%'";
                 }
-                if (filter_lname !== '') {
+                if ($filter_lname !== '') {
                         $safe_lname = mysqli_real_escape_string($conn, $filter_lname);
                         $where[] = "last_name LIKE '%$safe_lname%'";
                 }
@@ -119,7 +119,7 @@
                  <form method="POST" action="" onsubmit="return confirm('Delete ALL EOIs for this job reference? This cannot be undone.')">
                         <input type="hidden" name="action" value="delete_by_jobref">
                         <label for="del_jobref">Delete all EOIs by Job Reference:</label>
-                        <input type="text" id="del_jobref" placeholder="e.g. LOL001" required>
+                        <input type="text" id="del_jobref" name="job_ref" placeholder="e.g. LOL001" required>
                         <button type="submit">Delete</button>
                 </form>
 
@@ -133,27 +133,27 @@
                                 if (mysqli_num_rows($result) > 0){
                                         echo "<table border='1' cellpadding='5'>";
                                         echo "<tr><th>EOI ID</th><th>First Name</th><th>Preferred Name</th><th>Last Name</th><th>DOB</th><th>Gender</th><th>Street Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Job Title</th><th>Job Reference</th><th>Mobile Number</th><th>Home Number</th><th>Email</th><th>Main Skills</th><th>Other Skills</th><th>Experience</th><th>Status</th>";
-                                        while ($row = mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_num_rows($result)) {
                                                 echo "<tr>";
-                                                echo "<th>" . $row['eoi_id'] . "</th>";
-                                                echo "<th>" . $row['first_name'] . "</th>";
-                                                echo "<th>" . $row['pref_name'] . "</th>";
-                                                echo "<th>" . $row['last_name'] . "</th>";
-                                                echo "<th>" . $row['dob'] . "</th>";
-                                                echo "<th>" . $row['gender'] . "</th>";
-                                                echo "<th>" . $row['address'] . "</th>";
-                                                echo "<th>" . $row['suburb'] . "</th>";
-                                                echo "<th>" . $row['state'] . "</th>";
-                                                echo "<th>" . $row['postcode'] . "</th>";
-                                                echo "<th>" . $row['job_title'] . "</th>";
-                                                echo "<th>" . $row['job_ref'] . "</th>";
-                                                echo "<th>" . $row['mobile_number'] . "</th>";
-                                                echo "<th>" . $row['home_number'] . "</th>";
-                                                echo "<th>" . $row['email'] . "</th>";
-                                                echo "<th>" . $row['skills'] . "</th>";
-                                                echo "<th>" . $row['otherskills'] . "</th>";
-                                                echo "<th>" . $row['exp'] . "</th>";
-                                                echo "<th>" . $row['status'] . "</th>"
+                                                echo "<td>" . $row['eoi_id'] . "</td>";
+                                                echo "<td>" . $row['first_name'] . "</td>";
+                                                echo "<td>" . $row['pref_name'] . "</td>";
+                                                echo "<td>" . $row['last_name'] . "</td>";
+                                                echo "<td>" . $row['dob'] . "</td>";
+                                                echo "<td>" . $row['gender'] . "</td>";
+                                                echo "<td>" . $row['address'] . "</td>";
+                                                echo "<td>" . $row['suburb'] . "</td>";
+                                                echo "<td>" . $row['state'] . "</td>";
+                                                echo "<td>" . $row['postcode'] . "</td>";
+                                                echo "<td>" . $row['job_title'] . "</td>";
+                                                echo "<td>" . $row['job_ref'] . "</td>";
+                                                echo "<td>" . $row['mobile_number'] . "</td>";
+                                                echo "<td>" . $row['home_number'] . "</td>";
+                                                echo "<td>" . $row['email'] . "</td>";
+                                                echo "<td>" . $row['skills'] . "</td>";
+                                                echo "<td>" . $row['otherskills'] . "</td>";
+                                                echo "<td>" . $row['exp'] . "</td>";
+                                                echo "<td>" . $row['status'] . "</td>";
                                                 echo "</tr>"; 
                                         }
                                         echo "</table>";
