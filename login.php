@@ -22,27 +22,29 @@ $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
     <article>
         <h1 id="formhead">Login to Linkly!</h2>
             <?php
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {   // ← Only runs on form submit
-            $username = trim($_POST['username']);
-            $password = trim($_POST['password']);
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {   // ← Only runs on form submit
+                $username = trim($_POST['username']);
+                $password = trim($_POST['password']);
 
-            $stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE username = ?");
-            mysqli_stmt_bind_param($stmt, "s", $username);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
-            $user = mysqli_fetch_assoc($result);
+                $stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE username = ?");
+                mysqli_stmt_bind_param($stmt, "s", $username);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+                $user = mysqli_fetch_assoc($result);
 
-            if ($user['username'] === 'admin') and ($user['password'] === 'admin') {
-                header("Location: manage.php");
-                exit();
-            } elseif ($_SESSION['username'] = $user['username']) {
-                header("Location: index.php");
-                exit();
-            } else {
-                echo "❌ Incorrect username or password.";
+                if ($user['username'] === 'admin' && $password === 'admin') {
+                    header("Location: manage.php");
+                    exit();
+                } elseif ($user && password_verify($password, $user['password'])) {
+                    $_SESSION['username'] = $user['username'];
+
+                    header("Location: index.php");
+                    exit();
+                } else {
+                    echo "❌ Incorrect username or password.";
+                }
             }
-        }
-        ?>
+            ?>
 
             <form method="POST" id="user_form" action="login.php">
                 <label for="username">Username:</label>

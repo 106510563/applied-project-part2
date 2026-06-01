@@ -86,7 +86,8 @@
                         selling off our platform, press 3.</ul>
                     <li><strong>How do I sell a product on Linkly?</strong></li>
                     <ul>To become an official Linkly seller, follow our guide over on our Facebook, or watch
-                        <em>this</em>Youtube video with a more in-depth, visual explanation.</ul>
+                        <em>this</em>Youtube video with a more in-depth, visual explanation.
+                    </ul>
                     <li><strong>Can I get a refund?</strong></li>
                     <ul>Unfortunately, Linkly can not 100% guarantee a refund without approval from the seller you are
                         buying from, please contact our Customer Support number at +61 XXX-XXX-XXX option 2 for more

@@ -94,7 +94,8 @@ search label {
   border: 0;
 }
 
-button, input {
+button,
+input {
   border-radius: 7px;
   border: 3px inset black;
   padding: 2px 6px;
@@ -304,27 +305,28 @@ th {
   }
 
   #photo {
-  width: 100% !important;
+    width: 100% !important;
   }
 
   #left {
-  width: 50%;
-}
+    width: 50%;
+  }
 
-#authors {
-  scale: 90%;
-}
+  #authors {
+    scale: 90%;
+  }
 
-ol {
-  overflow: scroll;
-}
+  ol {
+    overflow: scroll;
+  }
 }
 
 body > nav:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > p:nth-child(1) {
   margin-left: 20px;
 }
 
-#gname, #pname {
+#gname,
+#pname {
   margin-right: 30px;
 }
 
@@ -333,14 +335,13 @@ figure {
   padding: 10px;
 }
 
-
 ::-webkit-scrollbar {
-    width: 12px;
-    background-color: white;
-    border: 3px solid darkblue;
+  width: 12px;
+  background-color: white;
+  border: 3px solid darkblue;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: darkblue;
+  background-color: darkblue;
 }
 
 html {

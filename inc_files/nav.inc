@@ -14,7 +14,7 @@
             </search>
         </li>
         <li><p><a href="login.php" class="menu">Login</a></p></li>
-        <li><p><a href="signup.php" class="menu">Signup</a></p=></li>
-        
+        <li><p><a href="logout.php" class="menu">Logout</a></p></li>
+        <li><p><a href="signup.php" class="menu">Signup</a></p></li>
     </ul>
 </nav>
