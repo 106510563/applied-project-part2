@@ -11,6 +11,7 @@
      https://github.com/daveh/php-signup-login/blob/main/process-signup.php 
      https://gist.github.com/ryansechrest/8138375
      https://www.php.net/manual/en/function.preg-match.php
+     https://www.vaadata.com/en/blog/php-security-best-practices-vulnerabilities-and-attacks/
      -->
     
     <!DOCTYPE html>
@@ -35,10 +36,10 @@
                 <h2>Create your account</h2>
 
                 <label for="username">Username: </label>
-                <input type="text" name="username" placeholder="Enter Username" class="forminp" value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>" required><br>
+                <input type="text" name="username" placeholder="Enter Username" class="forminp" required><br>
 
                 <label for="email">Email: </label>
-                <input type="email" name="email" placeholder="Enter Email" class="forminp" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required><br>
+                <input type="email" name="email" placeholder="Enter Email" class="forminp" required><br>
 
                 <label for="password">Password: </label>
                 <input type="password" name="password" placeholder="Enter Password" class="forminp" required><br>
@@ -52,7 +53,7 @@
 
             <?php
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-function sanitise_input($data) #CREATED BY: CIARA SMITH
+function sanitise_input($data) #CREATED BY: CIARA SMITH. Stops injections and cross-site scripting by sanitising user input
 {
     if (is_array($data)) {
             return "";
@@ -64,13 +65,13 @@ function sanitise_input($data) #CREATED BY: CIARA SMITH
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $error = "";
-    $success = false;
+    $error = ""; #Initialize error variable
+    $success = false; #Ensures success message only shows on successful signup
 
     if (!isset($_POST['token']) || !hash_equals($_SESSION['token'], $_POST['token'])) {
         $error = "❌ Invalid form submission.";
     } else {
-        $_SESSION['token'] = bin2hex(random_bytes(32));
+        $_SESSION['token'] = bin2hex(random_bytes(32));#creates a session token to prevent Cross-Site Request Forgery (CSRF) attacks. 
 
         $username = sanitise_input($_POST["username"]);
         $email    = sanitise_input($_POST["email"]);
