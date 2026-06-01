@@ -19,7 +19,7 @@ $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
         <?php include 'inc_files/header.inc'; ?>
         <?php include 'inc_files/nav.inc'; ?>
         <article>
-            <h2>Login to Linkly!</h2>
+            <h1 id="formhead">Login to Linkly!</h2>
                     <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {   // ← Only runs on form submit
             $username = trim($_POST['username']);

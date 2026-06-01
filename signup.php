@@ -21,8 +21,9 @@
     <?php include 'inc_files/header.inc'; ?>
     <?php include 'inc_files/nav.inc'; ?>
     <article>
+        <h1 id="formhead">Sign Up to Linkly</h1>
         <form method="post" id="user_form" action="">
-          <h2>Sign Up to Linkly</h2>
+          <h2>Create your account</h2>
 
           <label for="username">Username: </label>
           <input type="text" name="username" placeholder="Enter Username" class="forminp" required><br>
