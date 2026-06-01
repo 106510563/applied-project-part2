@@ -47,9 +47,19 @@
         <?php
             require_once 'settings.php';
             $conn = @mysqli_connect($host, $user, $pwd, $sql_db); // connects to the database and stores it to $conn
-
+            function sanitise_input($data) #CREATED BY: CIARA SMITH. Stops injections and cross-site scripting by sanitising user input
+            {
+                if (is_array($data)) {
+                        return "";
+                }
+                $data = trim($data);
+                $data = stripslashes($data);
+                $data = htmlspecialchars($data);
+                return $data;
+            }
             if (isset($_GET['q'])) {
-                $q = mysqli_real_escape_string($conn, $_GET['q']); // protects your database from SQL injection      
+                $q = sanitise_input($_GET['q']);
+                $q = mysqli_real_escape_string($conn, $q); // protects your database from SQL injection      
                 $sql = "SELECT * FROM jobs
                     WHERE name LIKE '%$q%' 
                     OR ref LIKE '%$q%'"; // 'LIKE%%' makes it so that the search query does not have to exactly match the SQL table
@@ -57,7 +67,7 @@
 
                 $result = mysqli_query($conn, $sql); // sends search query to the db and returns the retrived values under $result
                 
-                    echo '<p>Results for ' . htmlspecialchars($_GET['q']) . ':</p>'; // shows what the user input in the search query         
+                    echo '<p>Results for ' . sanitise_input($_GET['q']) . ':</p>'; // shows what the user input in the search query         
                     if (mysqli_num_rows($result) > 0) { // check to determine if a db returned any record of the q results
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<section class='job'>";
