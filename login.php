@@ -32,7 +32,7 @@ $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
             $result = mysqli_stmt_get_result($stmt);
             $user = mysqli_fetch_assoc($result);
 
-            if ($user['username'] === 'admin') {
+            if ($user['username'] === 'admin') and ($user['password'] === 'admin') {
                 header("Location: manage.php");
                 exit();
             } elseif ($_SESSION['username'] = $user['username']) {
