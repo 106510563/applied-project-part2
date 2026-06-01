@@ -32,18 +32,15 @@ $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
             $result = mysqli_stmt_get_result($stmt);
             $user = mysqli_fetch_assoc($result);
 
-            if ($user && password_verify($password, $user['password'])) {
-                $_SESSION['username'] = $user['username'];
-                if ($user['username'] === 'admin') {
-                    header("Location: manage.php");
-                } else {
-                    header("Location: index.php");
-                }
+            if ($user['username'] === 'admin') {
+                header("Location: manage.php");
+                exit();
+            } elseif ($_SESSION['username'] = $user['username']) {
+                header("Location: index.php");
                 exit();
             } else {
                 echo "❌ Incorrect username or password.";
             }
-        }
         ?>
 
             <form method="POST" id="user_form" action="login.php">
