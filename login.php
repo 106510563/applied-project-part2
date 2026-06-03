@@ -35,7 +35,7 @@ $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
                 if ($user['username'] === 'admin' && $password === 'admin') {
                     header("Location: manage.php");
                     exit();
-                } elseif ($user && password_verify($password, $user['password'])) {
+                } elseif ($username, $user['username'] && password_verify($password, $user['password'])) {
                     $_SESSION['username'] = $user['username'];
 
                     header("Location: index.php");
